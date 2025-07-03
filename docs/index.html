@@ -1,0 +1,1981 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WMMA5 Handbook</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2em;
+      max-width: 1000px;
+      margin: auto;
+      scroll-behavior: smooth;
+      transition: background-color 0.3s, color 0.3s;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    h1, h2, summary { color: #2c3e50; }
+    h1 { border-bottom: 2px solid #ccc; }
+    .section { margin-bottom: 2em; }
+
+    .toc {
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 1em;
+      margin-bottom: 2em;
+    }
+    .toc ul { list-style-type: none; padding-left: 1em; }
+    .toc li { margin: 0.3em 0; }
+
+    p {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #1a0dab;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    #top-button {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 99;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+    #top-button:hover { background-color: #1a242f; }
+
+    details summary {
+      font-weight: bold;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    #controls {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5em;
+    }
+    #search-box {
+      width: 60%;
+      padding: 8px;
+      font-size: 1em;
+    }
+    #theme-toggle {
+      padding: 8px 12px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    /* Dark Mode Styles */
+    .dark-mode {
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+    }
+    .dark-mode .toc {
+      background: #2c2c2c;
+      border-color: #555;
+    }
+    .dark-mode summary,
+    .dark-mode h1,
+    .dark-mode h2 {
+      color: #f0f0f0;
+    }
+    .dark-mode a {
+      color: #4ea1ff;
+    }
+  </style>
+</head>
+<body>
+  <a id="top"></a>
+  <h1>WMMA5 Player's Handbook</h1>
+
+  <div id="controls">
+    <input type="text" id="search-box" placeholder="Search for a section...">
+    <button id="theme-toggle">Dark/Light</button>
+  </div>
+
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ul>
+      
+        <li><a href="#what-is-wmma5-">What Is WMMA5?</a></li>
+      
+        <li><a href="#the-interface">The Interface</a></li>
+      
+        <li><a href="#playing-as-owner-vs-ceo">Playing As Owner vs. CEO</a></li>
+      
+        <li><a href="#winning-the-game">Winning The Game</a></li>
+      
+        <li><a href="#watcher-mode">Watcher Mode</a></li>
+      
+        <li><a href="#shortcut-keys">Shortcut Keys</a></li>
+      
+        <li><a href="#fight-engine-differences">Fight Engine Differences</a></li>
+      
+        <li><a href="#how-are-fights-simulated-">How Are Fights Simulated?</a></li>
+      
+        <li><a href="#tactics">Tactics</a></li>
+      
+        <li><a href="#enviroments-and-rules">Enviroments And Rules</a></li>
+      
+        <li><a href="#skill-changes-pre-fight-">Skill Changes (Pre-Fight)</a></li>
+      
+        <li><a href="#skill-changes-mid-fight-">Skill Changes (Mid-Fight)</a></li>
+      
+        <li><a href="#rating-fights">Rating Fights</a></li>
+      
+        <li><a href="#judging">Judging</a></li>
+      
+        <li><a href="#fight-metrics">Fight Metrics</a></li>
+      
+        <li><a href="#do-i-affect-the-fight-engine-">Do I Affect The Fight Engine?</a></li>
+      
+        <li><a href="#does-the-fight-engine-cheat-">Does The Fight Engine Cheat?</a></li>
+      
+        <li><a href="#scheduling">Scheduling</a></li>
+      
+        <li><a href="#ai-naming">AI Naming</a></li>
+      
+        <li><a href="#match-making">Match Making</a></li>
+      
+        <li><a href="#planning-ahead">Planning Ahead</a></li>
+      
+        <li><a href="#event-disruption">Event Disruption</a></li>
+      
+        <li><a href="#commercial-rating">Commercial Rating</a></li>
+      
+        <li><a href="#critical-rating">Critical Rating</a></li>
+      
+        <li><a href="#attendance-levels">Attendance Levels</a></li>
+      
+        <li><a href="#ticket-pricing">Ticket Pricing</a></li>
+      
+        <li><a href="#post-event-effects">Post-Event Effects</a></li>
+      
+        <li><a href="#post-event-bonuses">Post-Event Bonuses</a></li>
+      
+        <li><a href="#negotiations">Negotiations</a></li>
+      
+        <li><a href="#delegation-shortcut">Delegation Shortcut</a></li>
+      
+        <li><a href="#quick-hires">Quick Hires</a></li>
+      
+        <li><a href="#exclusive-contracts">Exclusive Contracts</a></li>
+      
+        <li><a href="#delegating-and-fairness">Delegating And Fairness</a></li>
+      
+        <li><a href="#contract-value">Contract Value</a></li>
+      
+        <li><a href="#terms">Terms</a></li>
+      
+        <li><a href="#cutting-characters">Cutting Characters</a></li>
+      
+        <li><a href="#interim-champions">Interim Champions</a></li>
+      
+        <li><a href="#title-prestige">Title Prestige</a></li>
+      
+        <li><a href="#weak-champions-and-challengers">Weak Champions And Challengers</a></li>
+      
+        <li><a href="#weak-challengers-affecting-draw">Weak Challengers Affecting Draw</a></li>
+      
+        <li><a href="#relative-to-size">Relative To Size</a></li>
+      
+        <li><a href="#training-gains">Training Gains</a></li>
+      
+        <li><a href="#general-reach">General > Reach</a></li>
+      
+        <li><a href="#general-cut-immunity">General > Cut Immunity</a></li>
+      
+        <li><a href="#general-conditioning">General > Conditioning</a></li>
+      
+        <li><a href="#general-strength">General > Strength</a></li>
+      
+        <li><a href="#general-mobility">General > Mobility</a></li>
+      
+        <li><a href="#general-flexibility">General > Flexibility</a></li>
+      
+        <li><a href="#general-reflexes">General > Reflexes</a></li>
+      
+        <li><a href="#general-chin-strength">General > Chin Strength</a></li>
+      
+        <li><a href="#general-resilience">General > Resilience</a></li>
+      
+        <li><a href="#general-stun-recovery">General > Stun Recovery</a></li>
+      
+        <li><a href="#general-consistency">General > Consistency</a></li>
+      
+        <li><a href="#general-weight-cutting">General > Weight Cutting</a></li>
+      
+        <li><a href="#general-dedication">General > Dedication</a></li>
+      
+        <li><a href="#general-potential">General > Potential</a></li>
+      
+        <li><a href="#standing-footwork">Standing > Footwork</a></li>
+      
+        <li><a href="#standing-feints">Standing > Feints</a></li>
+      
+        <li><a href="#standing-head-movement">Standing > Head Movement</a></li>
+      
+        <li><a href="#standing-punch-power">Standing > Punch Power</a></li>
+      
+        <li><a href="#standing-punch-technique">Standing > Punch Technique</a></li>
+      
+        <li><a href="#standing-hand-speed">Standing > Hand Speed</a></li>
+      
+        <li><a href="#standing-high-kick-power">Standing > High Kick Power</a></li>
+      
+        <li><a href="#standing-high-kick-technique">Standing > High Kick Technique</a></li>
+      
+        <li><a href="#standing-high-kick-speed">Standing > High Kick Speed</a></li>
+      
+        <li><a href="#standing-low-kick-power">Standing > Low Kick Power</a></li>
+      
+        <li><a href="#standing-low-kick-technique">Standing > Low Kick Technique</a></li>
+      
+        <li><a href="#standing-low-kick-speed">Standing > Low Kick Speed</a></li>
+      
+        <li><a href="#standing-creative-punches">Standing > Creative Punches</a></li>
+      
+        <li><a href="#standing-creative-kicks">Standing > Creative Kicks</a></li>
+      
+        <li><a href="#standing-guard-defence">Standing > Guard Defence</a></li>
+      
+        <li><a href="#standing-kick-defence">Standing > Kick Defence</a></li>
+      
+        <li><a href="#standing-takedowns">Standing > Takedowns</a></li>
+      
+        <li><a href="#standing-takedown-set-up">Standing > Takedown Set Up</a></li>
+      
+        <li><a href="#standing-takedown-speed">Standing > Takedown Speed</a></li>
+      
+        <li><a href="#standing-takedown-defence">Standing > Takedown Defence</a></li>
+      
+        <li><a href="#standing-sprawl">Standing > Sprawl</a></li>
+      
+        <li><a href="#ground-punch-power">Ground > Punch Power</a></li>
+      
+        <li><a href="#ground-punch-technique">Ground > Punch Technique</a></li>
+      
+        <li><a href="#ground-punch-speed">Ground > Punch Speed</a></li>
+      
+        <li><a href="#ground-elbow-power">Ground > Elbow Power</a></li>
+      
+        <li><a href="#ground-elbow-technique">Ground > Elbow Technique</a></li>
+      
+        <li><a href="#ground-elbow-speed">Ground > Elbow Speed</a></li>
+      
+        <li><a href="#ground-knee-power">Ground > Knee Power</a></li>
+      
+        <li><a href="#ground-knee-technique">Ground > Knee Technique</a></li>
+      
+        <li><a href="#ground-knee-speed">Ground > Knee Speed</a></li>
+      
+        <li><a href="#ground-sweeping">Ground > Sweeping</a></li>
+      
+        <li><a href="#ground-positional-ability">Ground > Positional Ability</a></li>
+      
+        <li><a href="#ground-creative-submissions">Ground > Creative Submissions</a></li>
+      
+        <li><a href="#ground-armlock-submissions">Ground > Armlock Submissions</a></li>
+      
+        <li><a href="#ground-leglock-submissions">Ground > Leglock Submissions</a></li>
+      
+        <li><a href="#ground-arm-choke-submissions">Ground > Arm Choke Submissions</a></li>
+      
+        <li><a href="#ground-leg-choke-submissions">Ground > Leg Choke Submissions</a></li>
+      
+        <li><a href="#ground-submission-defence-top-">Ground > Submission Defence (Top)</a></li>
+      
+        <li><a href="#ground-submission-defence-bottom-">Ground > Submission Defence (Bottom)</a></li>
+      
+        <li><a href="#ground-control-from-top-">Ground > Control (From Top)</a></li>
+      
+        <li><a href="#ground-control-from-bottom-">Ground > Control (From Bottom)</a></li>
+      
+        <li><a href="#ground-control-from-guard-">Ground > Control (From Guard)</a></li>
+      
+        <li><a href="#ground-scrambling">Ground > Scrambling</a></li>
+      
+        <li><a href="#ground-ground-escape">Ground > Ground Escape</a></li>
+      
+        <li><a href="#wrestling-grappling">Wrestling > Grappling</a></li>
+      
+        <li><a href="#wrestling-takedowns">Wrestling > Takedowns</a></li>
+      
+        <li><a href="#wrestling-takedown-defence">Wrestling > Takedown Defence</a></li>
+      
+        <li><a href="#wrestling-slams">Wrestling > Slams</a></li>
+      
+        <li><a href="#wrestling-elbow-power">Wrestling > Elbow Power</a></li>
+      
+        <li><a href="#wrestling-elbow-technique">Wrestling > Elbow Technique</a></li>
+      
+        <li><a href="#wrestling-elbow-speed">Wrestling > Elbow Speed</a></li>
+      
+        <li><a href="#wrestling-knee-power">Wrestling > Knee Power</a></li>
+      
+        <li><a href="#wrestling-knee-technique">Wrestling > Knee Technique</a></li>
+      
+        <li><a href="#wrestling-knee-speed">Wrestling > Knee Speed</a></li>
+      
+        <li><a href="#wrestling-dirty-boxing">Wrestling > Dirty Boxing</a></li>
+      
+        <li><a href="#muay-thai-thai-clinch">Muay Thai > Thai Clinch</a></li>
+      
+        <li><a href="#muay-thai-elbow-power">Muay Thai > Elbow Power</a></li>
+      
+        <li><a href="#muay-thai-elbow-technique">Muay Thai > Elbow Technique</a></li>
+      
+        <li><a href="#muay-thai-knee-power">Muay Thai > Knee Power</a></li>
+      
+        <li><a href="#muay-thai-knee-technique">Muay Thai > Knee Technique</a></li>
+      
+        <li><a href="#mental-experience">Mental > Experience</a></li>
+      
+        <li><a href="#mental-killer-instinct">Mental > Killer Instinct</a></li>
+      
+        <li><a href="#mental-game-plan">Mental > Game Plan</a></li>
+      
+        <li><a href="#mental-heart">Mental > Heart</a></li>
+      
+        <li><a href="#mental-preparation">Mental > Preparation</a></li>
+      
+        <li><a href="#mental-recuperation">Mental > Recuperation</a></li>
+      
+        <li><a href="#mental-comfort-in-cage">Mental > Comfort In Cage</a></li>
+      
+        <li><a href="#mental-comfort-in-ring">Mental > Comfort In Ring</a></li>
+      
+        <li><a href="#new-characters">New Characters</a></li>
+      
+        <li><a href="#retiring-characters">Retiring Characters</a></li>
+      
+        <li><a href="#new-companies">New Companies</a></li>
+      
+        <li><a href="#child-companies">Child Companies</a></li>
+      
+        <li><a href="#going-out-of-business">Going Out Of Business</a></li>
+      
+        <li><a href="#takeovers">Takeovers</a></li>
+      
+        <li><a href="#team-reputation">Team Reputation</a></li>
+      
+        <li><a href="#team-training">Team Training</a></li>
+      
+        <li><a href="#members-leaving">Members Leaving</a></li>
+      
+        <li><a href="#new-teams">New Teams</a></li>
+      
+        <li><a href="#closing-teams">Closing Teams</a></li>
+      
+        <li><a href="#broadcast-criteria">Broadcast Criteria</a></li>
+      
+        <li><a href="#broadcast-negotiations">Broadcast Negotiations</a></li>
+      
+        <li><a href="#relative-ranges">Relative Ranges</a></li>
+      
+        <li><a href="#judges">Judges</a></li>
+      
+        <li><a href="#referees">Referees</a></li>
+      
+        <li><a href="#what-is-fighter-popularity-">What Is Fighter Popularity?</a></li>
+      
+        <li><a href="#gaining-fighter-popularity">Gaining Fighter Popularity</a></li>
+      
+        <li><a href="#losing-fighter-popularity">Losing Fighter Popularity</a></li>
+      
+        <li><a href="#word-of-mouth">Word Of Mouth</a></li>
+      
+        <li><a href="#fighter-spillover">Fighter Spillover</a></li>
+      
+        <li><a href="#what-is-company-popularity-">What Is Company Popularity?</a></li>
+      
+        <li><a href="#changing-company-popularity">Changing Company Popularity</a></li>
+      
+        <li><a href="#company-spillover">Company Spillover</a></li>
+      
+        <li><a href="#challenges">Challenges</a></li>
+      
+        <li><a href="#trash-talking">Trash Talking</a></li>
+      
+        <li><a href="#morale">Morale</a></li>
+      
+        <li><a href="#hype">Hype</a></li>
+      
+        <li><a href="#financial-inducements">Financial Inducements</a></li>
+      
+        <li><a href="#replacement-offers">Replacement Offers</a></li>
+      
+        <li><a href="#regions-and-regulations">Regions And Regulations</a></li>
+      
+        <li><a href="#regional-settings">Regional Settings</a></li>
+      
+        <li><a href="#one-night-tournaments-and-contracts">One Night Tournaments And Contracts</a></li>
+      
+        <li><a href="#ai-booking">AI Booking</a></li>
+      
+        <li><a href="#tournament-injuries">Tournament Injuries</a></li>
+      
+        <li><a href="#tournament-recovery">Tournament Recovery</a></li>
+      
+        <li><a href="#recording-tournaments-in-editor">Recording Tournaments In Editor</a></li>
+      
+        <li><a href="#drug-usage">Drug Usage</a></li>
+      
+        <li><a href="#hiding-drug-use">Hiding Drug Use</a></li>
+      
+        <li><a href="#failing-drugs-tests">Failing Drugs Tests</a></li>
+      
+        <li><a href="#drug-test-firings">Drug Test Firings</a></li>
+      
+        <li><a href="#overturned-results">Overturned Results</a></li>
+      
+        <li><a href="#suspended-fighters">Suspended Fighters</a></li>
+      
+        <li><a href="#what-are-scandals-">What Are Scandals?</a></li>
+      
+        <li><a href="#what-are-game-changers-">What Are Game Changers?</a></li>
+      
+        <li><a href="#profile-navigation">Profile Navigation</a></li>
+      
+        <li><a href="#child-company-ownership">Child Company Ownership</a></li>
+      
+        <li><a href="#child-company-finance">Child Company Finance</a></li>
+      
+        <li><a href="#child-company-rosters">Child Company Rosters</a></li>
+      
+        <li><a href="#child-company-hires">Child Company Hires</a></li>
+      
+        <li><a href="#what-are-local-shows-">What Are Local Shows?</a></li>
+      
+        <li><a href="#local-fighters">Local Fighters</a></li>
+      
+        <li><a href="#what-is-reputation-">What Is Reputation?</a></li>
+      
+        <li><a href="#changing-reputation">Changing Reputation</a></li>
+      
+        <li><a href="#expiring-reputations">Expiring Reputations</a></li>
+      
+        <li><a href="#reputation-change-examples">Reputation Change Examples</a></li>
+      
+        <li><a href="#world-rankings">World Rankings</a></li>
+      
+        <li><a href="#company-rankings">Company Rankings</a></li>
+      
+        <li><a href="#ranking-reductions">Ranking Reductions</a></li>
+      
+        <li><a href="#relative-rankings">Relative Rankings</a></li>
+      
+        <li><a href="#can-an-avatar-die-">Can An Avatar Die?</a></li>
+      
+        <li><a href="#what-are-destiny-values-">What Are Destiny Values?</a></li>
+      
+        <li><a href="#olympic-games">Olympic Games</a></li>
+      
+        <li><a href="#world-championships">World Championships</a></li>
+      
+        <li><a href="#what-is-the-fighter-career-cycle-">What Is The Fighter Career Cycle?</a></li>
+      
+        <li><a href="#rising">Rising</a></li>
+      
+        <li><a href="#peaking-and-prime">Peaking And Prime</a></li>
+      
+        <li><a href="#declining">Declining</a></li>
+      
+        <li><a href="#award-criteria">Award Criteria</a></li>
+      
+        <li><a href="#the-two-editors">The Two Editors</a></li>
+      
+        <li><a href="#what-are-mods-">What Are Mods?</a></li>
+      
+        <li><a href="#installing-a-mod">Installing A Mod</a></li>
+      
+        <li><a href="#playing-a-multiplayer-game">Playing A Multiplayer Game</a></li>
+      
+        <li><a href="#versions-and-patches">Versions And Patches</a></li>
+      
+        <li><a href="#accessing-save-games">Accessing Save Games</a></li>
+      
+        <li><a href="#licenses">Licenses</a></li>
+      
+    </ul>
+  </div>
+
+  
+    <div class="section">
+      <details open>
+        <summary id="what-is-wmma5-">What Is WMMA5?</summary>
+        <p>World of Mixed Martial Arts 5 is a simulation game in which the player, in the guise of an avatar, joins the game world and either watches or takes part in its organic growth. While there is no 'correct' way to play, the primary method of game play centers on the player taking control of an MMA company and guiding them to success (or failure) by taking control of every aspect of the organisation, from scheduling, to match making, to recruitment.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="the-interface">The Interface</summary>
+        <p>The utility bar is split into four: quick office, quick characters, quick companies, and user controls. The first of those is the one you'll use most often. It gives you access to your mail and decisions, and also allows quick links to be set up to various office sub-screens. These sub-screens are exactly the same whether you reach them via the office or the quick office utility bar, but the latter means you don't have to navigate to the office each time and so saves you some clicking. You can alter the links via the Edit Layout button. The main play area offers the 'home page' for each section, often allowing you access to sub-screens via buttons. The navigation menu allows you to quickly move to the different main areas of the game and also to advance forward to the next day (either in single days or 'multi-advancing' through many at once). You can hover over an icon if you do not know what it refers to. On most days you will only be using the website and the office screens. When playing the game the interface is divided into three parts: to the left is the navigation menu, to the right is the play area, and at the bottom is the utility bar.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="playing-as-owner-vs-ceo">Playing As Owner vs. CEO</summary>
+        <p>The player can go from being CEO to being owner as well by applying for the job (via the Business tab from a company's profile). There is no way of going in the reverse direction (i.e. dropping down from being owner to only being CEO). The user's avatar can either be the owner of a company or the CEO (assuming he or she is employed, of course). If the player is the owner he or she is automatically working as the CEO as well. Both roles work in exactly the same way in terms of what the player will be in control of and what his or her responsibilities will be. The only difference is that if the player is only the CEO then he or she has less job security (i.e. failure is more likely to result in the sack) and some actions, particularly in regards to contract offers, can be over-ruled by the owner.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="winning-the-game">Winning The Game</summary>
+        <p>There is no way to 'win' the game - there is no end game criteria, no dragon to slay, and no way to die. Instead, like its close cousin the TEW franchise, the enjoyment is in immersing yourself in an organic game world and seeing or influencing what happens.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="watcher-mode">Watcher Mode</summary>
+        <p>To play in 'watcher mode', simply do not select a company to take over. You can also enter 'watcher mode' mid-game by resigning from your current job. You can come out of watcher mode by applying for jobs as they become available. Some people enjoy playing the game in 'watcher mode'. This is where the player remains unemployed and intentionally has no direct impact on the game world, instead simply sitting back and watching how everything unfolds.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="shortcut-keys">Shortcut Keys</summary>
+        <p>Please note that the first three of these shortcuts can also be used when reading pre-show previews. Move to next comment (space bar), move to previous comment (backspace), move to finish (enter), return to start ('s' key), move to next notable event ('b' key), toggle timer on / off ('t' key). When reading play-by-play the following shortcut keys can be used:</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="fight-engine-differences">Fight Engine Differences</summary>
+        <p>The one and only slight difference is in regards to Quick Fights; as these are individual bouts run from the main menu and therefore are not associated with a specific event, place, or time, anything directly related to any of those things (such as the advantages of a home town crowd, the pressure of main eventing, etc) obviously does not come into play as there is no context with which to use them. It is important to note that there is only one fight engine in WMMA5. Whether the fight is a Quick Fight from the main menu, a fight on a player-controlled event, a fight from an AI-controlled show, or a reality TV bout, and whether the user watches the fight live, reads a report afterward, or just looks at the result, every single fight uses the exact same engine and goes through the full simulation.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="how-are-fights-simulated-">How Are Fights Simulated?</summary>
+        <p>When it comes to striking, it should be noted that it is always made up of two factors - whether the strike hits, and how well it lands. There is a large degree of randomness in the latter, ensuring that a heavy handed fighter isn't getting a knock out every time he manages to land. In general, striking always has more randomness than grappling or ground work due to the nature of it. When making the calculations, both in terms of what they want to do and what actually happens, the game examines the appropriate skills and adds a degree of randomness. There is some randomness in every single calculation, which is why you will rarely see the exact same fight twice. This means that the fighter with the higher skill levels will always have an advantage, but may not necessarily always get his or her way. In all other cases, there will be an attacking fighter and a defending fighter. The attacker will decide his or her approach from a list of potential options which are contextual; for example, if on top in side control the options may be to pass to mount, to go for a submission, to try and pound away, etc. The defender will then do the same, based on the attacker's choice. The game then calculates what happens in that instant and then the same thing is repeated once again in the next position (or replaying the same position if they haven't moved.) Whenever the two fighters are facing and standing they will decide their 'mindset' (how they want to attack, such as striking or takedowns for example, and how aggressive they want to be about it) and decide an approach for how to proceed. This allows fighters to modify their tactics on the fly. Fights in WMMA5 are done in a modular fashion. There are lots of separate positions (for example, 'standing facing', 'in guard', 'backed up against cage', 'seated against cage with opponent on top', etc) which the fighters will move between as the fight progresses. There are also many overall counters and variables that keep track of how the fight is unfolding that the fighters can reference, for example 'knowing' that they're behind and there's not much time left.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="tactics">Tactics</summary>
+        <p>The fighters can also take into account context when it comes to deciding strategy. For example, if a fighter has already tried several takedowns without success then he may give up on them entirely on the grounds that it simply isn't working, even if that would normally be his strongest suit. Fighters will always try and go for the most likely route to victory. Usually this will be their own strongest suit, but not always. For example, if two fighters who are primarily strikers meet and they are evenly matched, but one is also a decent wrestler (but not as good as he is at striking) and the other isn't, that fighter may adopt a wrestling based approach as he 'knows' that he has a significant edge in a grappling contest whereas he has no edge at striking. When deciding their 'mindset' or tactics, fighters take into account their own skills and how they relate to their opponents. Their fight IQ (simulated by their Game Plan skill and potentially boosted by their team affiliation) comes into play here as the worse a fighter is at planning, the more he or she will tend to overestimate their own skills and underestimate their opponent's.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="enviroments-and-rules">Enviroments And Rules</summary>
+        <p>The rules format also has a big impact on the way fights play out. For example, wrestlers tend to like shorter rounds as it becomes easier for them to use 'lay and pray' or 'wall and stall' tactics without the time available for the opponent to mount a comeback. Longer rounds and fights also obviously favour fitter athletes. The environment that a fight takes place in has a direct impact on fights. For example, strikers find it much easier to corner their opponent in a ring than a cage. Also, some fighters are naturally more comfortable in one than the other.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="skill-changes-pre-fight-">Skill Changes (Pre-Fight)</summary>
+        <p>In all cases, weight-related changes are staggered; that is, the bigger the difference, the bigger the potential bonuses and penalties. The most common changes, however, are those related to weight differences. For example, if one fighter significantly outweighs the other then he or she may get bonuses to strength, punching power, etc, but may well get penalties to skills like footwork in order to simulate the speed difference. A fighter can receive skill boosts and penalties prior to the fight. Some of these will be explicitly commented on, some won't. There are many such changes, ranging from penalties for weight cuts that were too severe, to boosts for fighting in front of a home crowd, to a fighter simply being nervous.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="skill-changes-mid-fight-">Skill Changes (Mid-Fight)</summary>
+        <p>Generally speaking, the worse conditioning a fighter has, the quicker and more obvious the degradation of his or her skills will be. The second mid-fight change is from damage received. For example, body shots will tire a fighter out more quickly than normal. Leg kicks will reduce his or her foot speed as well as affecting stamina levels. A broken rib will affect pretty much everything a fighter can do. There are two primary mid-fight changes. The first is simply due to time and / or physical exertion. The longer the fighter competes and the harder he or she is working, the quicker his or her skills will degrade due to tiredness. A fighter's skills will change during the course of the bout. The player cannot explicitly see this in terms of numbers, but the commentary will reflect it.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="rating-fights">Rating Fights</summary>
+        <p>The fight rating is important for two main reasons. The first is that it directly impacts an event's Critical Rating. The second is that very exciting or very dull fights can affect the popularity change that a fighter experiences post-fight. It should be noted that the finish, or lack of, is also taken into consideration. For example, a fight that goes to the judges will in effect be punished because it will not be receiving the positive points that an actual finish would have provided. At the end of the fight, the total negative points are removed from the total positive points to reach a final points tally. This value is then used to determine the fight's rating, which is a direct measure of how exciting it was for the fans. Whenever something exciting or interesting happens in a fight (for example, a strike landing, a takedown attempt being launched or completed, a sweep, a successful pass, etc) it is recorded and awarded points based on how much the fans would have enjoyed it. Similarly, whenever something dull or boring happens (for example, a grappling stalemate, 'wall and stall' tactics, a period of inactivity, etc) that is also recorded, but as a negative number of points based on how tedious it was.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="judging">Judging</summary>
+        <p>It should be noted that the in-game commentator uses the hidden points total when commenting on the action (for example, when he says that he thinks that it was a 10-9 round to fighter #1), and does so without any random numbers or bias being involved. As such, his view is always 100 Judges cannot 'cheat' in the sense of deliberately giving an incorrect result, but the use of random numbers and potential biases do mean that they can make mistakes. The totals that each judge comes up with are then compared to decide who they think won the round and by what score (i.e. 10-9, 10-8, etc). In fights where the judges score the whole contest, this process happens once at the end of the fight rather than after each round. Whenever a fighter achieves something in a fight he or she is given a number of points toward a hidden total. The value is pre-set depending on what happened, so a big takedown may give 10 points while a foot stomp may give just 1, for example. At the end of the round each judge in turn takes the total and applies a random number, based on their personal accuracy and the accuracy specified in the editable fight engine. If that judge has any set biases, this can also alter the figure slightly.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="fight-metrics">Fight Metrics</summary>
+        <p>For example, suppose fighter #1 hits nine trivial punches and one solid punch while fighter #2 hits ten solid punches. Both will show as having hit ten Jabs in the Metrics screen, but clearly fighter #2 will be well ahead with the judges. It is important to note that the judges take into account the impact level, so although level 1 and 3 are both classified as a Jab the latter 'scores' more than the former. Therefore, the Fight Metrics screen should not be taken as an accurate indicator of scoring. The Fight Metrics screen is available at the end of each round and after the fight. It breaks down strikes into Jab and Power categories. In game terms, every strike that lands has its impact rated between 1 and 5, as follows: 1 (trivial), 2 (mild), 3 (solid), 4 (powerful, usually leading to a stun or knock down), 5 (KO). Those rated between 1 and 3 are classified as Jab, 4 and 5 are Power.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="do-i-affect-the-fight-engine-">Do I Affect The Fight Engine?</summary>
+        <p>Although the play-by-play is presented as being live, in reality it is generated immediately before the player gets to read it. As such, how (or even if!) you read the play-by-play has absolutely no impact on the fight. Whether you skip straight to the end, go back and forth, skim read it, etc, the play-by-play has already been created and saved and so you are just viewing it passively.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="does-the-fight-engine-cheat-">Does The Fight Engine Cheat?</summary>
+        <p>The fight engine can never 'cheat' in any way; it is completely oblivious of the context of a fight and so every bout is handled entirely fairly.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="scheduling">Scheduling</summary>
+        <p>Cancelling a show, except on the same day that it was scheduled, will cost money (the amount depending on how long it has been scheduled) and also damage your Stability rating (the closer you are to the show happening, the greater the damage). The advantage of booking a show more than one month into the future is that it may allow you to get shared fighters booked before a rival uses them. It also allows the fighters longer to hype the fight. The disadvantage is that the longer the fighters are scheduled to fight, the greater the chance that they will sustain an injury during training. You can schedule a new event whenever you like by using the Match Making button in your office. There is no limit on how many shows you may have scheduled simultaneously. You must give at least one month's time for the show to be organised, except in the first week of the game when you only require two weeks of preparation time.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ai-naming">AI Naming</summary>
+        <p>The AI will be unable to make a valid name if there is no way of making a unique name due to the current setting. For example, if the setting was Numerically and the AI wanted to make 'GAMMA 1', but an event of that name already existed, that would constitute a reason to switch. The AI will always try and follow the event naming setting that has been assigned to it. However, database makers should be aware that if the AI cannot make a valid name it will automatically switch to using the Named setting from then on.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="match-making">Match Making</summary>
+        <p>Finally, it can be a smart tactic to 'steal' popularity from other fighters. For example, if you have an ageing fighter who has lots of popularity but is clearly declining, it is often a good idea to 'feed' them to rising stars. If the rising star beats them, not only are they likely to rise up the rankings and gain popularity from beating a big name, they'll also gain from the exposure of having been in a much-watched fight. To build new stars, one of the things you will often look at is how to maximise their popularity gains. Putting them in a position to win is clearly the most important part, but allowing them to shine is also important. This can be achieved by cherry-picking their opponent to give them a chance to get impressive finishes, for example, or to avoid problems. For example, if you know you have a devastating striker who is vulnerable to takedowns, putting him or her against a top wrestler would be unwise. With the remainder of the fights, the 'draw' is less important as it has far less impact on the success of the show (particularly the prelims, where the 'draw' is irrelevant). This means that you can use the remainder of the fights to try and build new stars, to groom new talent, and to cycle out old talent. Your approach to match making will generally differ depending on which part of the card you are looking at. With the main and co-main event, you are primarily looking at the 'draw' of the fight - this is how attractive it is to fans. You can see this via the side panels on the match making screen(s). Your goal is to make fights that are going to satisfy the fans, or better still to attract new ones! Match making is at the heart of the game and requires a lot of skill and judgement. The goal is to create a situation where your company has current stars who can headline shows, rising stars who will be able to headline shows in the future, and young talent you can groom for the future.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="planning-ahead">Planning Ahead</summary>
+        <p>On top of that, it is also smart to plan at least one challenger ahead. That is, it generally pays to have title fights and number one contenders fight fairly close to each other, time-wise, as they will then likely be available to be matched up in the future. You would want to avoid a situation where your champion is out of synch with the next contender as you may be forced to endure a long wait until they're both available at the same time. A key part of event planning and match making is not ignoring the future. You will likely need to be running shows fairly regularly and that means you need a constant supply of good main event fights. For this reason, it is smart to 'ration' out your big name stars so that they're not all being used on the same show. It is far better to have four shows each with a big name main event than to overload a single show with many big names!</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="event-disruption">Event Disruption</summary>
+        <p>An event's disruption status is a hidden variable. The more important the fight being impacted, the greater the disrupion. For example, a main event getting altered due to injury will produce a huge disruption, a prelim fight getting moved will cause little or no disrupion. The following things count as disruptions: fights being cancelled, fights being moved off the show, and fights being altered due to one (or both) of the competitors becoming unavailable. Adding new fights or filling in To Be Announced positions do not count as disruptions. In the week immediately before a scheduled event takes place it is considered vulnerable to change. During this time period, changes may be logged as official 'Event Disruptions'. The more disruptions that happen, the more the Commercial Rating will be impacted. At its worse, with a severely disrupted show, the Commercial Rating may be penalised up to 15</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="commercial-rating">Commercial Rating</summary>
+        <p>To get higher commercial ratings the player would need simply to provide bigger drawing fights. The higher the final rating is, the more fans will have been enticed to watch it (whether live or on TV). It should be noted that the final rating that you see when viewing an event is the 'draw' in the area that it was held only (although is almost all cases this will also be the highest rating of any of the game areas). It is calculated primarily by looking at the 'draw' of the main event and co-main event, with the main event being by far the more important of the two (if the co-main event is a bigger draw than the main event, they are essentially swapped over for the purposes of the calculation). If either of the main two fights was part of a one night tournament then their rating is instead calculated as the best 'draw' of the tournament as a whole. A strong main show undercard can give a mild boost to the final rating, while the preliminary fights have no impact at all. The Commercial Rating is a measure of the 'draw' of a show, or to put it another way how interested the fans were based on the scheduled line-up.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="critical-rating">Critical Rating</summary>
+        <p>A player who wishes to get higher Critical Ratings would be wise to fill his or her cards with potentially exciting fights. Please note that boring fights do not lower the rating or have any impact on the calculation whatsoever; as long as the show has three good fights, it will do fine. A high critical rating (60 The Critical Rating is a measure of how exciting the event was. It is calculated by looking at the three most highly rated fights on the main show (NB preliminaries have no impact at all), with a bonus available if the main event was one of the best two fights on the show.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="attendance-levels">Attendance Levels</summary>
+        <p>Further adjustments can be made depending on the intent of the show and whether it's a TV show or not. Finally, a +/- 10 The attendance that an event gets is calculated in stages. Firstly, a base number if created by looking at the popularity of the company in the game area in which the show is being held. This can go from 80 to 50,000. This is then adjusted by, in turn, the Commercial Rating of the show, the momentum of the company, how many shows have passed since the last time the company held a show featuring legit star names, the economy in that area, the marketing level applied to the show, and the company's Credibility.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ticket-pricing">Ticket Pricing</summary>
+        <p>The average ticket price is calculated primarily from the size of the company, with further modifications based upon the size and lucrative rating of the region in which the show is held. The gate receipt for a show is calculated by multiplying the attendance by the average ticket price. Ticket pricing is handled automatically and cannot be impacted by the player.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="post-event-effects">Post-Event Effects</summary>
+        <p>As mentioned in the Critical Rating section, above, the Critical Rating will also impact the company's popularity in any area in which the show was either held or broadcast. This effect is sizeable, but definitely secondary compared to the effects linked to the Commercial Rating. The most powerful factor is the Commercial Rating. A separate Commercial Rating is calculated for each game area in which the show was either held or broadcast and this is compared to the company's current popularity in that area. If it's greater, the company will gain some popularity; if it's lower, it will lose some. The impact of a show on a company's popularity is primarily based on the Commercial Rating and Critical Rating, although the type and level of broadcasting (if any) can affect the size of the change and there are also potential penalties for things like poor quality announcing.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="post-event-bonuses">Post-Event Bonuses</summary>
+        <p>Fighters who do not get a bonus and feel that they should have had one will usually get a morale penalty. The level of penalty will depend on their personality, how much money they could have made compared to their regular base pay, and how much they think they deserved a bonus. The bonuses you give will affect the fighters morale. Those who receive a bonus will generally get a boost, with the size dependent on how big the bonus is compared to their base pay. After an event finishes the player may give bonuses for the fight, knock out, and submission of the night and also individual performance bonuses. There is no limit on how many you may award, although by default the three Of The Night bonuses are limited to one per show.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="negotiations">Negotiations</summary>
+        <p>The response time for a normal (i.e. not a 'quick hire') offer will change depending on how many offers are made and how often they change. A bidding war where two or more companies keep trying to out-do each other will take longer. There is, however, a maximum limit on how long the fighter will wait before making a decision in order to prevent negotiations going on indefinitely. Fighters can 'remember' offers, and will never be happy if an offer is made worse; their 'memory' lasts for several days. Fighters also have some awareness of context, so trying to get them on a 'quick hire' deal will always lead to them wanting more money due to the nature of the offer. The offer will automatically filled in with appropriate values for a fighter of that level. However, some fighters have excessive demands due to their personalities or other circumstances and may require more. You can see a visual representation of their take on the offer via the icons that appear at the side of the offer screen once you've made the offer official. Negotiations can be started with any character simply by hitting the Negotiations button on any of the many roster or profile screens on which it appears. If the fighter has absolutely no desire to join you (or can't) then you will always be informed immediately, before the negotiation screen appears; this saves the user from wasting time on offers that can't possibly succeed.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="delegation-shortcut">Delegation Shortcut</summary>
+        <p>Please note that there is absolutely no difference between using this shortcut or the Delegate button that is available on the standard negotiations screen, they both lead to the same place. Whenever the player sees a Negotiate button (for example, in a character's profile or in the Fighters section) he or she can jump straight to the Delegate screen simply by right-clicking the button. This shortcut allows the user to skip the normal negotiation screen entirely and therefore speeds hiring up.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="quick-hires">Quick Hires</summary>
+        <p>Fighters who have been 'quick hired' do not suffer any sort of direct penalty in their fight. However, as their camp will have been very short they will be at a disadvantage because they will not have gained as much skill as they normally would with a full camp. If you make this sort of offer then the fighter will always respond quickly and be willing to fight at short notice if booked within seven days of signing. The drawback is that they'll expect slightly more money than usual. When negotiating, the user can specifically request a 'quick hire' by selecting the 'and I need a quick response' option. This lets the fighter know that you want a speedy response and that you're intending for them to fight at short notice. This is designed to allow users to fill spots on a card that has been hit with injuries.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="exclusive-contracts">Exclusive Contracts</summary>
+        <p>Exclusive contracts give a company more security and control as the fighter (or character) works solely for them and cannot be poached, at least until the renegotiation period starts. Companies must be of at least High Level Regional in order to offer exclusive deals; smaller than this and no character will accept an exclusive offer, regardless of the circumstance.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="delegating-and-fairness">Delegating And Fairness</summary>
+        <p>All contract offers are conducted fairly. That is, the AI has no ability to recognise the context of the offer, and so whether it is player-made, AI-made, delegated or otherwise, the offer has exactly the same value and will be handled in exactly the same way. There is absolutely no advantage to making the first chronological offer either.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="contract-value">Contract Value</summary>
+        <p>It should be noted that if the fighter has a non-exclusive deal that isn't near to expiry then he will automatically assign that a value and potentially consider rejecting other offers in favour of sticking with what he already has. When deciding between multiple offers, the fighter will go for the one which has been evaluated to have the highest value rating. This calculation is heavily influenced by a fighter's Career Goals setting. For example, someone who is motivated by Glory will tend to place more value on working for a larger company as it means more exposure. When evaluating contract offers a fighter will create a value rating. This is based primarily on how much he or she can realistically expect to make over the course of the contract, while taking into account the size of the company and the security it offers.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="terms">Terms</summary>
+        <p>The player should be aware of the potential for 'stacking' bonuses; for example, a fighter in the main event would automatically be getting both the main event bonus and the main show bonus as clearly you can't have the former without the latter also being true. All the bonus terms are percentages and are applied to the base pay. For example, if a fighter is on $1000 base pay and has a win bonus of 50 The performance scale refers to the change that the base pay will undergo with a victory. For example, '+5 The base pay is the most important term and is how much the fighter makes for appearing for that company, irrespective of result. This is the value that all the various bonus terms apply to.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="cutting-characters">Cutting Characters</summary>
+        <p>There are some cases where a character can be cut for free even if they have guaranteed fights left. These are: if they have been caught in a scandal or legal issues, if they are serving a drug suspension (even if the failed drug test was in another organisation), if they failed a drug test in your organisation in the past month, and if their contract allows them to be cut for free following a loss. The cost of cutting a character is the number of guaranteed fights he or she has left multiplied by the base pay. If a fighter has no guaranteed fights left, they can be cut for free. The end result is exactly the same regardless of which method you choose, there are multiple ways to achieve it simply because it makes the user's life easier to be able to do it from so many different places. In particular, users may find that the Cut From Roster section is very useful immediately after running a show because of its in-built filters. There are three ways to cut / fire a character from your organisation. You can click on their contract details text in the Roster or Child Organisation screens, access the Employment part of their profile, or use the Cut From Roster section of the office.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="interim-champions">Interim Champions</summary>
+        <p>There is no real advantage or disadvantage to having interim champions, they exist primarily to help keep divisions active. The game automatically takes into account that an interim title is less valuable in marketing terms than the real champion. Interim champions, as in reality, are 'back-up' holders of a title who exist when the champion is likely to be unable to defend for a significant amount of time. To create an interim champion the player simply has to book a title fight between two fighters who aren't the champion - the resulting fight will automatically be an interim title fight (unless the title is vacated before that fight happens).</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="title-prestige">Title Prestige</summary>
+        <p>A title's prestige is useful for tracking the quality of champions who have held it. A high rating can also give a small boost to the 'draw' of any fight involving it. The title's prestige will always move to reflect the champion, using the hidden ranking value, although it can only rise of fall by a relatively small amount each time. For example, a champion who is high up the pound-for-pound rankings will see any title he or she holds naturally rise in prestige. A title's prestige is an indication of how respected it is in regards to who has been holding it. It is updated after every title bout, but is not affected by interim title fights.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="weak-champions-and-challengers">Weak Champions And Challengers</summary>
+        <p>If the fighter has more ranking points in an adjacent division, the game will take that into account. This allows, for example, a highly ranked Lightweight to fight for the Welterweight title without getting penalised (assuming his Lightweight ranking is sufficiently high). A company will get penalised for using weak champions and challengers in title fights. A fighter is considered weak if his ranking points (after being modified to take into account his current momentum) are low compared to the others in the top five of that division.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="weak-challengers-affecting-draw">Weak Challengers Affecting Draw</summary>
+        <p>It should be noted that if you make a title match in which the challenger is considered weak (for example, if they are on a losing streak or are otherwise clearly not deserving) then having the title on the line can actually reduce the 'draw' of a fight compared to the same fight without the title involved; this is because the fans understand that it's not a legitimate title bout and are reacting accordingly.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="relative-to-size">Relative To Size</summary>
+        <p>The power of the scaling increases for every 10lbs of weight difference. If there is less than 10lbs of difference, no scaling happens at all. The game automatically scales the fighters' skills at the start of a fight based on their respective weights (NB: the game is using their actual weights at the time of the fight, not what they weighed in at). For example, a fighter who is a lot lighter will see his striking power, grappling ability, etc, diminish, but will also see his opponent's hand speed, mobility, etc, go down too. It is important to note that a fighter's skill levels are relative to his current size and do not need to be scaled. For example, a Flyweight with 100 Punch Power does not hit as hard as a Heavyweight with 100 Punch Power.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="training-gains">Training Gains</summary>
+        <p>The potential gains from training depend on lots of factors, including the fighter's dedication, age (or more accurately, position in their career cycle), natural skill levels, and the team (if any) that he or she is associated with. A lazy fighter with no team is going to gain at a far slower rate than a motivated individual with a top team. It should be noted that active training only happens for the 4-6 weeks immediately before a fight. If the fighter is booked much further in advance than that, the early training would be considered passive as he or she does not want to peak too early. This stops players from 'super charging' their fighters by booking everyone months in advance! An active fighter is constantly training, but it is divided into active and passive. Active training occurs when they have a fight scheduled, inactive training is when they don't. The difference is that active training is far more intense and so the gains are greater. This is why fighters who compete a lot will get better faster than those who don't.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="general-reach">General > Reach</summary>
+        <p>A fighter's reach has two uses. The first is when engaging in striking battles, as the fighter with the reach advantage gets extra bonus points that make it more likely that he will land first (the bonus increases as the reach advantage does). The second is when a striker is trying to initiate an attack against an opponent who is trying to shoot or wrestle; the longer the reach advantage, the more likely the attacker is to be able to land first and gain the advantage.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="general-cut-immunity">General > Cut Immunity</summary>
+        <p>This is a measure of how likely the fighter is to be cut by strikes. The higher the value is, the less likely he is to start bleeding. Any fighter, even one with maximum Cut Immunity, can bleed, it just becomes less likely as the value rises.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="general-conditioning">General > Conditioning</summary>
+        <p>Once a fighter becomes tired his skills become increasingly heavily penalised and so Conditioning is a key part of remaining competitive. This represents a fighter's physical conditioning or cardio. It has two effects on a fight. The first is that it is used to give the fighters their initial stamina level, which impacts how long they can fight and at what intensity before they tire. The second is that it affects how much each action takes out of the fighter; someone with high Conditioning will tire less quickly.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="general-strength">General > Strength</summary>
+        <p>This is a measure of a fighter's raw physical power. In a wrestling situation, a high degree of Strength can give a bonus to a fighter's Grappling score. A high score is also necessary for the fighter to be able to execute certain moves, such as powerbombs and major suplexes.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="general-mobility">General > Mobility</summary>
+        <p>This is how mobile the fighter is. It has two uses. The first is that it is used for flying moves (such as flying knees and stomps) to calculate the likelihood of success. The second is to enable or disable certain moves. For example, a low value will prohibit the fighter from attempting certain flying attacks, leaping stomps, and quick explosive actions like dropping down for knee bars.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="general-flexibility">General > Flexibility</summary>
+        <p>This is how physically limber the fighter is. It is used to disable certain moves. For example, a low score will stop the fighter from using rubber guard, omoplatas and flying armbars. This value does not, however, come into play in the actual execution of the move.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="general-reflexes">General > Reflexes</summary>
+        <p>This is a measure of how quickly the fighter can react. It is used in some fast-action moves (such as a flying knee attack) both for the attacker and defender to give bonuses or penalties to their execution score. For example, a high score would both give the attacker a boost in attempting to hit the move and aid the defender in moving to safety in time.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="general-chin-strength">General > Chin Strength</summary>
+        <p>It should be noted that the Chin value can get 'worn down' during a fight; i.e. if a fighter takes multiple strikes to the head, he will become gradually more and more likely to get stunned or knock down \ out. This is how strong the opponent's chin is, essentially how hard of a blow he can take to the head before he gets stunned or knocked out. This is almost always compared to the strength of the strike, which is usually calculated using the opponent's punch or kick Power value. The higher the Chin rating, the less likely the fighter will be to get seriously damaged.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="general-resilience">General > Resilience</summary>
+        <p>It should be noted that even someone with maximum Resilience can still get injured, it just makes them a lot less likely to get hurt. This is how injury prone the fighter is. This does not refer to in-fight injuries, which are specific to actions within the bout, but to every other type of injury (such as during training, etc). The higher the value, the less likely the fighter is to get injured.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="general-stun-recovery">General > Stun Recovery</summary>
+        <p>This is how quickly a fighter can shake off the effects of being stunned by a strike or strikes. A low rating would mean that they remain groggy, and therefore unable to defend themselves fully, for longer. A high value will see them recover quicker and be less likely to get finished while in the stunned state.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="general-consistency">General > Consistency</summary>
+        <p>This is a measure of how consistent the fighter is when it comes to his performances. A random number between 1 and 90 is generated for each fighter at the start of each fight and if this number exceeds their Consistency value then they suffer a penalty (between 1</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="general-weight-cutting">General > Weight Cutting</summary>
+        <p>NB: If a fighters needs to gain weight then this is not covered by this stat. All fighters can gain up to 15 Fighters can be motivated to cut between 2 and 8lbs extra depending on how severe the fine for failing weight in that company is. However much weight the fighter cuts, he will be eligible to put exactly half back on before the fight. This would be his actual weight at the time of the bout. Weight Cutting of 0-10 (4 The following are the amounts involved and are provided primarily for mod makers. The first number is the percentage of their walking weight they can lose and the second number is the amount of randomness. For example, a fighter with a walking weight of 200lbs and Weight Cutting of 20 has '(5 This is how effective the fighter is at cutting weight before a fight, defined as going from their walking weight to their target weight. It has no direct impact on the fight itself, but the stress of a large weight cut can cause a fighter to be physically weakened by dehydration.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="general-dedication">General > Dedication</summary>
+        <p>This is how dedicated to being a professional the fighter is. It is directly influences his training. A low value (below 50) means they are not fully dedicated and so will get less benefits from training than normal, leading to slower growth and faster decline. A high value (over 75) means they are supremely dedicated and so will get more from each training session. Values between those two are considered normal and neither attract bonuses nor penalties.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="general-potential">General > Potential</summary>
+        <p>Please note that a value of zero means that nothing has been filled in and the game will randomise the fighter's potential. It is important to note that Potential does not guarantee success; a fighter may not reach his limits if he doesn't train correctly, gets injured a lot, or makes bad career choices. A high value simply increases the odds of him becoming highly skilled and therefore successful. This is a measure of how much potential the fighter has; i.e. how successful in MMA he is likely to be. This value is used when creating the fighter's (hidden) maximum skill limits (this happens when starting a new game and when a new fighter is generated). The higher the fighter's Potential value, the more likely he is to end up with high maximum limits and therefore the better skilled he has the ability to become.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-footwork">Standing > Footwork</summary>
+        <p>This is a measure of a fighter's footwork quality. It is used when the fighter is defending against strikes, particularly distance strikes like head kicks. The higher the value, the more likely the fighter is to be able to step out of danger in time.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-feints">Standing > Feints</summary>
+        <p>This is how good the fighter is at using tricky feints to cause the opponent to react to a fake strike and therefore become off-balance or otherwise open to attack. It is compared to the opponent's Punch Technique. The higher then value, the more feints the attacker will attempt during the course of a fight and the more successful they are likely to be. A successful feint gives a small increase to the chance of the attacker hitting the strikes that immediately follow.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-head-movement">Standing > Head Movement</summary>
+        <p>This is how good the fighter is at using head movement to avoid punches. It is used purely for defence, when the opponent is throwing punches to the head. The higher the value, the more likely the fighter is to be able to duck, avoid, or slip past the punch.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-punch-power">Standing > Punch Power</summary>
+        <p>The value represents their ideal punching power, i.e. if they hit cleanly. The value is reduced in the game for many factors, such as it being partially blocked, not landing cleanly, fatigue, etc. This is how hard the fighter hits with punches; the higher the value, the more damage he can do. It is used when a punch hits to decide how badly hurt the opponent is, usually in relation to their Chin Strength; the bigger the difference in favour of the attacker, the more likely the punch is to stun, knock down or knock out the opponent.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-punch-technique">Standing > Punch Technique</summary>
+        <p>This is the fighter's technical ability with regards to the art of boxing. It is the primary skill used in deciding whether a punch actually lands, and is usually compared to the opponent's Head Movement and Guard Defence. It is important to note that it is not just about pure mechanical technique however, but also covers timing, distance control, disguising the strike properly, reading the opponent's intentions, etc. A low value would make it difficult for the fighter to land any significant punches on an opponent's with decent defence or movement.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-hand-speed">Standing > Hand Speed</summary>
+        <p>This is how quick the fighter hands are in regards to throwing punches. It is used as a secondary calculation when deciding whether a punch lands; it is not as important as Punch Technique, but can shift the chance up or down. It is primarily compared to the opponent's Head Movement.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-high-kick-power">Standing > High Kick Power</summary>
+        <p>The value represents their ideal kicking power, i.e. if they hit cleanly. The value is reduced in the game for many factors, such as it being partially blocked, not landing cleanly, fatigue, etc. This is how hard the fighter hits with head kicks; the higher the value, the more damage he can do. It is used when a head kick hits to decide how badly hurt the opponent is, taken in relation to their Chin Strength; the bigger the difference in favour of the attacker, the more likely the kick is to stun, knock down or knock out the opponent.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-high-kick-technique">Standing > High Kick Technique</summary>
+        <p>This is the fighter's technical ability with regards to kicking at head height. It is the primary skill used in deciding whether a head kick actually lands, and is usually compared to the opponent's Head Movement and, to a lesser degree, Guard Defence. As such, it is not just about pure technique but also covers timing, distance control and disguising the strike properly. A low value would make it difficult for the fighter to land any significant head kicks on an opponent's with decent defence or movement.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-high-kick-speed">Standing > High Kick Speed</summary>
+        <p>This is how quick the fighter is in regards to throwing head kicks. It is used as a secondary calculation when deciding whether a head kick lands; it is not as important as High Kick Technique, but can shift the chance up or down. It is primarily compared to the opponent's Footwork.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-low-kick-power">Standing > Low Kick Power</summary>
+        <p>The value represents their ideal kicking power, i.e. if they hit cleanly. The value is reduced in the game for many factors, such as it being partially blocked, not landing cleanly, fatigue, etc. This is how hard the fighter hits with low kicks (i.e. below chest height); the higher the value, the more damage he can do. It is used when a low kick hits to decide how badly hurt the opponent is. It is taken as an absolute value; generally values of below 30 will do little damage while those over 70 will be able to severely hurt the opponent.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-low-kick-technique">Standing > Low Kick Technique</summary>
+        <p>This is the fighter's technical ability with regards to kicking at below head height. It is the primary skill used in deciding whether a low kick actually lands, and is mainly compared to the opponent's Kick Defence. It is not just about pure technique but also covers timing, distance control and disguising the strike properly. A low value would make it difficult for the fighter to land any significant low kicks on an opponent's with decent defence or movement.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-low-kick-speed">Standing > Low Kick Speed</summary>
+        <p>This is how quick the fighter is in regards to throwing kicks below head height. It is used as a secondary calculation when deciding whether a low kick lands; it is not as important as Low Kick Technique, but can shift the chance up or down. It is primarily compared to the opponent's Footwork.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-creative-punches">Standing > Creative Punches</summary>
+        <p>This is a measure of how many creative or exotic punch-based attacks the fighter has in his arsenal. The higher the value, the more he will have. This covers things like Superman punches, spinning back fists, etc.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-creative-kicks">Standing > Creative Kicks</summary>
+        <p>This is a measure of how many creative or exotic kick or knee-based attacks the fighter has in his arsenal. The higher the value, the more he will have. This covers things like flying knee strikes, spinning back kicks, etc.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-guard-defence">Standing > Guard Defence</summary>
+        <p>This is how good the fighter is at using his hands to guard against punches and high kicks. It is compared to the opponent's strike technique, with the greater the difference in favour of the defender, the better the chance of him being able to successfully block or absorb the blow.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-kick-defence">Standing > Kick Defence</summary>
+        <p>This is how good the fighter is at guarding against or checking low kicks. It is compared to the opponent's Low Kick Technique, with the greater the difference in favour of the defender, the better the chance of him being able to successfully block or check the kick.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-takedowns">Standing > Takedowns</summary>
+        <p>This is how good the fighter is at 'shot' takedowns; i.e. takedowns not from a clinch or grappling situation. The value is compared to the opponent's Sprawl first, with the greater the difference in favour of the attacker, the more likely the takedown is to succeed. The value is then compared to the opponent's Standing Takedown Defence to find how good of a position the attacker gets off the takedown.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-takedown-set-up">Standing > Takedown Set Up</summary>
+        <p>A high score for this value also means that takedowns may get some special text indicating that they were technically good. This is how good the fighter is at setting up his takedowns, for example how well he disguises them and how smoothly he can transition from striking to shooting. This is compared to the fighter's own Standing Takedowns value; if it is markedly lower then the takedown is penalised, while if it is higher than the takedown receives bonuses and is more likely to succeed.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-takedown-speed">Standing > Takedown Speed</summary>
+        <p>A high score for this value also means that takedowns may get some special text indicating that they were fast. The speed of the takedown also impacts how long the takedown takes in terms of how many seconds are taken off the bout clock. This is how quick the fighter is at shooting in for a takedowns. This is compared to the fighter's own Standing Takedowns value; if it is markedly lower then the takedown is penalised, while if it is higher than the takedown receives bonuses and is more likely to succeed.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-takedown-defence">Standing > Takedown Defence</summary>
+        <p>A fighter's Takedown Defence is used in relation to an opponent's takedown that has already successfully beaten the fighter's Sprawl attempt. The higher the value in relation to the opponent's Standing Takedowns, the better the position the fighter is likely to find himself in after being taken down.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="standing-sprawl">Standing > Sprawl</summary>
+        <p>This is a measure of how good the fighter is at using a sprawl to defend against a 'shot' takedown. The higher the value in comparison to the opponent's Standing Takedowns, the more likely the sprawl is to both be effective and result in a good position (i.e. bringing the opponent down to a turtled position).</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-punch-power">Ground > Punch Power</summary>
+        <p>It should be noted that the power is automatically reduced if the attacker is being controlled properly; i.e. his power is much less when held in guard than it is if he has mounted the opponent. This is how much damage a fighter can do when punching from on top while the opponent is downed. The higher the value, the more damage he can do. This is compared to the opponent's Control skill (Bottom or Guard depending on what position they're in), with the wider the gap in favour of the attacker, the more likely the punches are to finish the fight.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-punch-technique">Ground > Punch Technique</summary>
+        <p>This is how much technique the fighter has when punching from on top while the opponent is downed. The higher the value, the more likely the fighter is to be able to cleanly hit the strikes.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-punch-speed">Ground > Punch Speed</summary>
+        <p>This is how quick the fighter is when delivering punches from on top while the opponent is downed. The higher the value, the more likely the fighter is to be able to cleanly hit the strikes.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-elbow-power">Ground > Elbow Power</summary>
+        <p>It should be noted that the power is automatically reduced if the attacker is being controlled properly; i.e. his power is much less when held in guard than it is if he has mounted the opponent. This is how much damage a fighter can do when elbowing from on top while the opponent is downed. The higher the value, the more damage he can do. This is compared to the opponent's Control skill (Bottom or Guard depending on what position they're in), with the wider the gap in favour of the attacker, the more likely the elbows are to finish the fight.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-elbow-technique">Ground > Elbow Technique</summary>
+        <p>This is how much technique the fighter has when elbowing from on top while the opponent is downed. The higher the value, the more likely the fighter is to be able to cleanly hit the strikes.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-elbow-speed">Ground > Elbow Speed</summary>
+        <p>This is how quick the fighter is when delivering elbows from on top while the opponent is downed. The higher the value, the more likely the fighter is to be able to cleanly hit the strikes.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-knee-power">Ground > Knee Power</summary>
+        <p>When done to a turtled opponent, the opponent has no specific defence. Instead, the raw power of the knees is taken into consideration. From side control or north-south, this is compared to the opponent's Control From Bottom skill, with the wider the gap in favour of the attacker, the more likely the knees are to do serious damage. This is how much damage a fighter can do when delivering knees either from side control or north-south position, or, to a turtled opponent. The higher the value, the more damage he can do.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-knee-technique">Ground > Knee Technique</summary>
+        <p>This is how much technique the fighter has when delivering knees from side control or north-south position. The higher the value, the more likely the fighter is to be able to cleanly hit the strikes.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-knee-speed">Ground > Knee Speed</summary>
+        <p>This is how quick the fighter is when delivering knees from side control or north-south position. The higher the value, the more likely the fighter is to be able to cleanly hit the strikes.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-sweeping">Ground > Sweeping</summary>
+        <p>This is how skilled the fighter is at using sweeps on the ground. It is compared to the opponent's Control (whether Top or Bottom), with the greater the difference in favour of the attacker, the more likely the sweep is to succeed and the higher its quality.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-positional-ability">Ground > Positional Ability</summary>
+        <p>This is the fighter's general ability with regard to getting and maintaining position on the ground. It is used for the following: guard passing, securing control over a downed opponent, moving to a better position (such as half guard to guard) when on the defensive, getting crucifix position (front and back), applying hooks and body triangles or flattening out opponents under back control, switching from front to back or rolling turtled opponents, and breaking free when trapped in rubber guard.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-creative-submissions">Ground > Creative Submissions</summary>
+        <p>Please note that this does not affect the ability of the fighter to execute the submission - that is covered by the relevant Submission skill - only whether the fighter has the option to even try to use them. This skill represents a fighter's knowledge of advanced submissions; without a relatively high score (usually over 70) the fighter will be unable to utilise higher level techniques (such as flying leglocks or other exotic submissions, for example).</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-armlock-submissions">Ground > Armlock Submissions</summary>
+        <p>This is how skilled the fighter is at performing armlock submissions (e.g. arm bars, kimuras, etc). The higher the value compared to the opponent's relevant Submission Defence skill, the more likely the fighter is to be able to force a submission.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-leglock-submissions">Ground > Leglock Submissions</summary>
+        <p>This is how skilled the fighter is at performing leglock submissions (e.g. heel hooks, knee bars, etc). The higher the value compared to the opponent's relevant Submission Defence skill, the more likely the fighter is to be able to force a submission.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-arm-choke-submissions">Ground > Arm Choke Submissions</summary>
+        <p>This is how skilled the fighter is at performing choke submissions using his arms (e.g. guillotines, arm triangles, etc). The higher the value compared to the opponent's relevant Submission Defence skill, the more likely the fighter is to be able to force a submission.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-leg-choke-submissions">Ground > Leg Choke Submissions</summary>
+        <p>This is how skilled the fighter is at performing choke submissions using his legs (e.g. triangle chokes). The higher the value compared to the opponent's relevant Submission Defence skill, the more likely the fighter is to be able to force a submission.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-submission-defence-top-">Ground > Submission Defence (Top)</summary>
+        <p>This is how skilled the fighter is at defending against submissions performed from beneath him (for example triangle chokes). The higher the value in comparison to the opponent's relevant Submission skill, the easier the fighter will find it to successfully stay safe.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-submission-defence-bottom-">Ground > Submission Defence (Bottom)</summary>
+        <p>This is how skilled the fighter is at defending against submissions performed from above him (for example kimuras from side control, mounted armbars, etc). The higher the value in comparison to the opponent's relevant Submission skill, the easier the fighter will find it to successfully stay safe.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-control-from-top-">Ground > Control (From Top)</summary>
+        <p>This is how good the fighter is at maintaining control when on top of the opponent. The higher the value, the more easily he will be able to keep the opponent under him and stop sweeps, escapes, etc.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-control-from-bottom-">Ground > Control (From Bottom)</summary>
+        <p>This is how good the fighter is at maintaining control when underneath the opponent (but without holding guard). The higher the value, the more easily he will be able to keep the opponent above him from passing guard, posturing up, etc.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-control-from-guard-">Ground > Control (From Guard)</summary>
+        <p>This is how good the fighter is at maintaining control when holding the opponent in guard. The higher the value, the more easily he will be able to keep the opponent above him from passing guard, posturing up, etc.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-scrambling">Ground > Scrambling</summary>
+        <p>This is a general skill that is used to represent a fighter's ability when quickly scrambling for position. It is used whenever the fighters find themselves both on the ground but without a defined position (such as when a sweep goes wrong or the opponent on top loses control) and also when there's an opportunity to create space (such as trying to perform a cage walk). The opponent will either be using his own Scrambling skill or one of the Control skills, depending on the position, to calculate who comes off best.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ground-ground-escape">Ground > Ground Escape</summary>
+        <p>This shows the fighter's skill at escaping from a trapped position. It has three main uses: getting free when the attacker on top is attempting to smother, performing a cage walk up (done in conjunction with the Scrambling skill), and moving from holding guard or half guard to a standing position via underhooks (done in conjunction with the relevant Control skill).</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="wrestling-grappling">Wrestling > Grappling</summary>
+        <p>As a secondary usage, Grappling is also used by the fighter either to physically bully an opponent around or to unbalance an opponent to stop them attacking (such as with the Thai Clinch). Primarily this skill is used when the two fighters are at close quarters, whether that be in a clinch, scrambling or having ended up close together for some other reason. Usually this will be a straight battle comparing the Grappling skill of both fighters to see who comes out on top. It is also used when a fighter wants to close the distance and start grappling; for example, it may be compared to the opponent's hand speed and reach (amongst other skills) to measure whether he can initiate a clinch and how many strikes he'll take getting there. This is a very wide-ranging skill that is essentially a measure of a fighter's ability both to grab and control an opponent.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="wrestling-takedowns">Wrestling > Takedowns</summary>
+        <p>This is a measure of how skilled the fighter is at using takedowns from a clinched position (front and rear). The higher the value in comparison to the opponent's Takedown Defence skill, the more likely the move is to succeed and the better the subsequent position the fighter is liable to get.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="wrestling-takedown-defence">Wrestling > Takedown Defence</summary>
+        <p>This is the fighter's ability to defend against takedowns from the clinch (front and rear) and slams. The higher the value in comparison to the opponent's Takedowns or Slams skill, the more likely he is to be able to stop the takedown from happening.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="wrestling-slams">Wrestling > Slams</summary>
+        <p>The second application is as a counter-measure. The fighter can slam his way out of two situations: when an opponent is trying to pull him down into guard from a standing position, and when an opponent attempts a flying armbar. In the first case, Slams is compared to the opponent's Grappling skill. In the second, it is compared to the opponent's Armlock Submissions skill. The first is to pick up and slam the opponent from a clinched position. The opponent defends via his Grappling skill. The higher the Slams skill is in comparison, the more likely the slam is to succeed and the better the subsequent position the attacker can get off of it. This is how good the fighter is at using slams. It has two applications.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="wrestling-elbow-power">Wrestling > Elbow Power</summary>
+        <p>This is how strong the fighter's elbows are from a clinched position to the opponent's head. The higher the value, the more damage is likely to be done. The opponent uses his Grappling skill to try and unbalance or block the opponent, preventing the strike or reducing its impact if successful.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="wrestling-elbow-technique">Wrestling > Elbow Technique</summary>
+        <p>This is how much technique the fighter has when using elbows from a clinched position. The higher the value, the more likely the fighter is to be able to cleanly hit the strikes.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="wrestling-elbow-speed">Wrestling > Elbow Speed</summary>
+        <p>This is how quick the fighter is when delivering elbows from a clinched position. The higher the value, the more likely the fighter is to be able to cleanly hit the strikes.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="wrestling-knee-power">Wrestling > Knee Power</summary>
+        <p>As a secondary application, Knee Power is also used if the fighter counters a 'shot' takedown attempt with a knee to the face. In this case, Knee Power is compared to the opponent's Chin to rate the damage done. This is how strong the fighter's knees are from a clinched position to the opponent's body. The higher the value, the more damage is likely to be done. The opponent uses his Grappling skill to try and unbalance or block the opponent, preventing the strike or reducing its impact if successful.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="wrestling-knee-technique">Wrestling > Knee Technique</summary>
+        <p>This is how much technique the fighter has when using knees from a clinched position. The higher the value, the more likely the fighter is to be able to cleanly hit the strikes.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="wrestling-knee-speed">Wrestling > Knee Speed</summary>
+        <p>This is how quick the fighter is when delivering knees from a clinched position. The higher the value, the more likely the fighter is to be able to cleanly hit the strikes.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="wrestling-dirty-boxing">Wrestling > Dirty Boxing</summary>
+        <p>It should be noted that the Dirty Boxing skill does not impact the strength of the strikes; this is handled by the regular Punch Power skill. This is how well the fighter can use dirty boxing; this is, to dirty box without losing control of the clinch. When being dirty boxed, the opponent uses their Grappling skill to try and counter.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="muay-thai-thai-clinch">Muay Thai > Thai Clinch</summary>
+        <p>When applying this skill, the opponent uses their Grappling skill against it (both to stop the clinch being applied, to try and break free, and to unbalance the opponent to stop clean strikes being delivered). This represents the fighter's ability to grab, maintain, and strike from a Thai clinch. If the value is too low, the fighter will ignore the Thai clinch entirely unless they have been specifically given a Muay Thai background.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="muay-thai-elbow-power">Muay Thai > Elbow Power</summary>
+        <p>Please note that it does not affect the likelihood of actually hitting the strike; this is covered by the Thai Clinch skill. This is how much force the fighter can get behind elbow strikes from the Thai clinch. It is compared to the opponent's Chin skill to decide how much damage it does.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="muay-thai-elbow-technique">Muay Thai > Elbow Technique</summary>
+        <p>When delivering such a strike, firstly the fighter's Thai Clinch skill is compared to the opponent's Grappling to see how much control the fighter has. The Elbow Technique is then compared to the opponent's Grappling; if the Technique is superior, it allows the attacker to get bonus points and better execute the strike. This is a measure of the fighter's technique when delivering an elbow strike from the Thai clinch.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="muay-thai-knee-power">Muay Thai > Knee Power</summary>
+        <p>Please note that it does not affect the likelihood of actually hitting the strike; this is covered by the Thai Clinch skill. This is how much force the fighter can get behind knee strikes from the Thai clinch. It is compared to the opponent's Chin skill to decide how much damage it does.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="muay-thai-knee-technique">Muay Thai > Knee Technique</summary>
+        <p>When delivering such a strike, firstly the fighter's Thai Clinch skill is compared to the opponent's Grappling to see how much control the fighter has. The Knee Technique is then compared to the opponent's Grappling; if the Technique is superior, it allows the attacker to get bonus points and better execute the strike. This is a measure of the fighter's technique when delivering a knee strike from the Thai clinch.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="mental-experience">Mental > Experience</summary>
+        <p>Database maker's should note that experience can be automatically set to the appropriate level via Mass Edit in the editor. A highly experienced fighter is not eligible for any of the penalties mentioned above, and will also (usually) avoid potentially silly point deductions such as repeating an action that has already received a referee's warning. A fighter with low experience is more prone to get nervous (resulting in small 5-10 This is how experienced the fighter is. The value raises with each fight the character has, with the size of the increase depending on the length of the bout completed: very short fights would only give gains of 1 or 2</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="mental-killer-instinct">Mental > Killer Instinct</summary>
+        <p>Thirdly, a high value means the fighter will be willing to use vicious stomps, dangerous soccer kicks, etc, to fallen opponents. The second is that a high value means the fighter is more likely to try and corner an opponent in a ring so that they can trap them. The first is that a fighter with a high value will be more likely to go for finishes when they present themselves. For example, they may quickly dive in on a fallen opponent and start punching rather than getting position first. This is how strong the fighter's instinct to go for a win is. It controls three aspects of a fight.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="mental-game-plan">Mental > Game Plan</summary>
+        <p>Please note that a fighter's current team can impact this value. This is done by comparing the team's Mental Training Strength to the fighter's Game Plan; if the team would be better at producing a game plan than the fighter then they take over, essentially artificially boosting the fighter's Game Plan value for the duration of the fight. This is how good the fighter is at game planning. When the fighter is deciding his current strategy in a fight (which occurs multiple times per round), his Game Plan value affects how he rates both himself and his opponent. A low value, for example, means he is more likely to overestimate his own skills and underestimate his opponent's. This could lead to him adopting a bad strategy. On the flip side, a fighter with a high Game Plan value is going to be much more accurate in his assessment and therefore his strategy will likely be better tailored for him.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="mental-heart">Mental > Heart</summary>
+        <p>The Heart skill is also used to decide whether a fighter will tap out; a high value may see the fighter go to sleep or suffer an injury rather than tap out to a submission. The primary use of this skill is in relation to mental collapses and rallies. Fighters with a low score are prone to get discouraged if they're getting beaten, and this may trigger penalties to simulate their collapse. A fighter with a high score may rally and try and come from behind; this would involve bonuses being applied to some skills. This is a measure of the fighter's mental fortitude. The higher the value, the more mentally strong he is.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="mental-preparation">Mental > Preparation</summary>
+        <p>This is how much preparation time the fighter needs to get ready for a fight. A value between 0 and 10 would usually equate to around 49 days, while a value between 90 and 100 gives around 22 days. Note that the actual time may vary as other factors (such as the fighter's circumstances, the potential opponent, etc) comes into play.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="mental-recuperation">Mental > Recuperation</summary>
+        <p>This is how quickly a fighter recuperates after a fight. The higher the value, the quicker. This refers only to the natural stresses (physical and mental) they take from an MMA bout, it does not affect how quickly they recover from specific injuries (which is covered by the injury's settings).</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="mental-comfort-in-cage">Mental > Comfort In Cage</summary>
+        <p>The value rises by a minimum of 10 points with every fight in that environment, plus a random number of points between 1 and 10. A score of 60 or less indicates that the fighter has issues and will be eligible for a small (5-10 This is how comfortable the fighter is with competing in a cage.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="mental-comfort-in-ring">Mental > Comfort In Ring</summary>
+        <p>The value rises by a minimum of 10 points with every fight in that environment, plus a random number of points between 1 and 10. A score of 60 or less indicates that the fighter has issues and will be eligible for a small (5-10 This is how comfortable the fighter is with competing in a ring.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="new-characters">New Characters</summary>
+        <p>As well as fighters, the game will also fill in missing announcers, colour commentators, etc, where needed. Unless set otherwise via the Era section of the editor, the game will fill up areas where there is not enough talent (for the default classes, the minimum is 25 men and 15 women) with new fighters. For example, if there is a company in Europe with a male Lightweight division but hardly any male lightweight fighters available, the game will intentionally create a selection of appropriate fighters. This may result in a sudden glut of debuting fighters. New fighters will appear during gameplay. These can take the form of preset characters that have been added to the game via the editor, or brand new characters who are freshly formed on the fly.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="retiring-characters">Retiring Characters</summary>
+        <p>Under normal circumstances, employed fighters will not retire during the first six months of a game. This is to help balance the database by stopping early mass retirements. Female fighters tend to have a natural retirement age that is 3-5 years younger than their male counterparts. The criteria that govern when a fighter retires include his age (in relation to his life cycle), his current employment, and his current success levels. For example, a fighter may have a 'natural' retirement age of 38 but add another 3 years to that because he is currently making huge amounts of money with a major company and another 2 years because he is currently a world ranked fighter on a winning streak. On the flip side, a fighter who can't find a job and has lost his last three fights may check out early. There are two types of retirement during the game, retirement from active competition and retirement from the game world itself. The latter is permanent and applies to non-fighters as well.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="new-companies">New Companies</summary>
+        <p>Companies will tend to be more likely to get founded when either the economy is strong or if there's an opportunity, i.e. an area that has few or no other companies but plenty of potential fighters. Some companies will pop up at random though. New companies can be founded during gameplay, but only if they have been added via the editor; i.e. companies cannot be created 'out of thin air' without the user or database maker's input.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="child-companies">Child Companies</summary>
+        <p>A child company is a financial extension of the parent. As such, at the end of each month all the child company's funds are absorbed. This means that if they made a loss, the parent covers it, and any profit it also taken by the company. For this reason, a child company cannot go bankrupt as long as the parent company is running. Having a child company allows you to call up or send fighters down whenever you want, in essence giving you an AI-run place to either build up new talent or revitalise old talent. You can edit much of the running of the child company via the Child Organisation button in your office. You cannot actually book their shows or do match-making, however. A child company is one owned by a larger company. To get a child company you would need to takeover another company (see Takeovers, below).</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="going-out-of-business">Going Out Of Business</summary>
+        <p>A hidden 'bankruptcy counter' will be created or added to whenever a company reaches a set point in the month while in debt. It is reset to zero if the company comes out of debt. If the counter reaches a certain limit, the company closes. The limit is calculated with regard to the company's current size and how long they have been active - a large, historic company will therefore take quite a long time to go out of business. The amount of debt does not impact the length of the limit, and so the player cannot quicken a company's demise by setting them to be in extreme debt. Companies will generally only close for one of two reasons; bankruptcy or being bought out by another company.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="takeovers">Takeovers</summary>
+        <p>You cannot takeover human-controlled companies. It should be noted that you cannot try and 'trick' your way into an instant takeover by using the editor to set a company's money to a large negative number. This is because bankruptcy, as discussed in the previous topic, is time-sensitive (i.e. the company must be in debt for an extended period of time). Companies will never accept a takeover if they have money left, are bigger than the predator company, or are still several months away from bankruptcy. You can attempt to takeover a company via the Business button in their profile. Successfully taking over a company means you pay off their debts and they turn into your 'child' company.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="team-reputation">Team Reputation</summary>
+        <p>The team's reputation is important as it indicates to other fighters how successful the team is and what quality it has within it. Therefore, it has a big effect on which fighters will want to come and train there. A team's reputation is calculated once per month (the exact day is dependent on the team's hidden destiny value). A target value is created by calculating the average of the three highest reputation's of fighters currently affiliated with the team (penalties apply if there are less than three fighters present). If the team's reputation is below this target value then it will slowly start to move toward it, and likewise it will creep downward if the value is lower than it's current reputation.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="team-training">Team Training</summary>
+        <p>It should be noted that the team members do not affect the quality of training, only the team's stated levels are used. So having a world class wrestler join does not mean that the team becomes better at wrestling training. It does not matter whether a fighter is a Permanent Member, Long Term Member or Visitor when training happens, the potential boosts from being on a team are the same. Being on a team can help a fighter's rate of improvement during training because the team's strengths give extra boosts to certain skills. For example, being on a team with strong Jiu-Jitsu will lead to a fighter improving his passing, submission skills, etc.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="members-leaving">Members Leaving</summary>
+        <p>On top of this, there is also another hidden counter that gives an overall duration that they can stay. If this expires, the fighter will choose to leave. Very few fighters will reach this expiry date, it is included to stop fighters with long term injuries or absences from taking up a spot on the team when they aren't actually doing anything. Once a fighter has completed his minimum amount, any losses he suffers from that point on will cause him to choose to leave the team shortly after. Once a fighter has completed his maximum then he will also choose to leave. This system ensures that a fighter's form plays a large part in how long he sticks around for. When a fighter joins a team, unless they're a permanent member, they are given a hidden counter for the minimum and maximum number of fights they will stay for. Visitors will have small amounts, Long Term members have larger.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="new-teams">New Teams</summary>
+        <p>Fighters can also found their own teams during gameplay. This is generally unaffected by what is happening elsewhere in the game world, and is just because the fighter wanted to. It is generally limited to high profile fighters or those whose skills and personality make it likely that they would want to pass on their knowledge. Teams that have been preset in the editor can be founded during gameplay. They will tend to appear when the economy is strong and / or when there are a lot of fighters and too few teams to support them. In essence, this is simple supply and demand.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="closing-teams">Closing Teams</summary>
+        <p>Teams will generally only close for one reason; their founder retiring. Other than that, teams will tend to stay active constantly once they've been founded.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="broadcast-criteria">Broadcast Criteria</summary>
+        <p>When viewing a broadcaster you will be able to see their minimum criteria; this takes the form of three items under Other Information and a set of Minimum Company Sizes. In each case, if the user's company (assuming they are employed) fails any of the criteria then it will be shown in red. If none of the criteria are red then that means that the company passes all the requirements and the broadcaster will consider negotiating (NB this does not guarantee that they will - things such as scandals can sour them!).</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="broadcast-negotiations">Broadcast Negotiations</summary>
+        <p>The user can choose to extend a broadcasting deal from either the Media game area or the Media subsection of the office. You may extend a deal only when there are either less than three months or five shows remaining on the current deal, or, when all the remaining contracted episodes have been scheduled to happen.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="relative-ranges">Relative Ranges</summary>
+        <p>The ranges have the following values, where PG stands for Popularity Growth and BR stands for Broadcast Revenue (i.e. 20 A broadcaster has a different range value for each area; this shows how widely viewed they are in that place. Primarily, the range affects the potential popularity gain and revenue and so, as you would expect, the large the range the better for the company being shown on it.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="judges">Judges</summary>
+        <p>Bias indicates their inherent preferences. They will score more heavily towards their biases during fights. Accuracy indicates how much randomness is added to their scoring during fights; the lower the value, the more random (and therefore less accurate) they will be. Name Value indicates how well known they are; the higher it is, the more likely they are to get asked to judge. Judges operate in the background of WMMA in that they aren't people you can view or interact with. They are assigned to fights by the AI. If no judges are in the database, random creations fill the role. There are three main values that define a judge: Name Value, Accuracy, and Bias.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="referees">Referees</summary>
+        <p>Name Value indicates how well known they are; the higher it is, the more likely they are to get asked to referee fights. Referees, like Judges, operate in the background of WMMA and cannot be viewed or interacted with. They are assigned to fights by the AI, and if none exist, random creations fill the gaps. They have values that indicate how they act, plus another main value, Name Value.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="what-is-fighter-popularity-">What Is Fighter Popularity?</summary>
+        <p>A fighter's popularity will be primarily changed when he fights, with the areas that the event is broadcast (or held) in being the ones that his or her popularity will change in. Roughly speaking, a fighter's popularity can be considered to be their 'draw' value; that is, how many peple are interested in following their career and seeing them fight. The more popular they become, the more valuable they are to potential employers as the more ticket sales or viewers they are likely to attract.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="gaining-fighter-popularity">Gaining Fighter Popularity</summary>
+        <p>Fights on local cards and preliminary bouts always get reduced effects. Fast, decisive wins always result in the biggest gains and can result in bonus gains if the fighter is particularly marketable. 'Being successful in fights' covers several things. The most important is winning (or drawing against a better or equal opponent), with the better the opponent, the bigger the gain. The method of victory, how quickly the victory was achieved, their performance in any post-fight interview, and their work in building up the fight can also result in gains. Fighters with high momentum gain popularity faster than normal while negative momentum severely slows the rate of gain. Fighters can gain popularity from external incidents, but the primary method of adding popularity comes from three things: appearing on events (the bigger the company, the bigger the gain), being successful in fights, and from having exciting fights.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="losing-fighter-popularity">Losing Fighter Popularity</summary>
+        <p>Fights on local cards and preliminary bouts always get reduced effects. The size of the decrease is linked primarily to the method of defeat and the quality of the opponent, but the quality of the fight (in terms of excitement) can also make things better or worse. Fighters with negative momentum lose popularity at a faster rate than normal. Fighters can lose popularity from external incidents, but primarily popularity will decrease due to losses (or draws against 'lesser' opponents).</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="word-of-mouth">Word Of Mouth</summary>
+        <p>Fighters can still gain popularity in their home area even if their fight is not actually held or broadcast in that area. This simulates a 'word of mouth' effect. For example, a Russian fighter competing in Japan will still find his exploits talked about at home in Russia and so will therefore have the opportunity to have his popularity altered. The potential popularity change is exactly half of what it would be if the show was actually held or broadcast in the area.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="fighter-spillover">Fighter Spillover</summary>
+        <p>Spillover occurs at the following levels: National 0 When a fighter's popularity reaches certain levels in a game area, it organically raises the popularity in other areas too. This is known as 'spillover', and represents word of mouth.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="what-is-company-popularity-">What Is Company Popularity?</summary>
+        <p>A company's popularity can be considered to be their 'draw' value; that is, how many people are interested in coming to their events or watching on TV. The more popular they become, the more fans they have and the more money they can realistically generate. Fan expectations grow with popularity, so the more popular a company becomes, the better the shows people will expect.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="changing-company-popularity">Changing Company Popularity</summary>
+        <p>The popularity change for each area is altered depending on the broadcast level being used, and there are also potential penalties for not meeting certain demographic requirements and for having poor commentary (if the show is being broadcast). Generally speaking, a company's popularity changes with the shows they hold. This is done by comparing the commercial rating of the show to the company's current popularity in each area. It is important to note that the commercial rating is calculated for each area in turn, so what would be a popular show for an American audience may not be quite so interesting to a Japanese audience; this, of course, depends on what fighters are being used. The critical rating of the show has a lesser, but still significant, impact on potential gains or losses.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="company-spillover">Company Spillover</summary>
+        <p>The second type of spillover occurs at International level, and raises all other areas to a low National level. The first type of spillover occurs at National level, and raises neighbouring areas to a low Regional level. The neighbours are defined as: America and Canada; America and Mexico; Japan and Asia; South America and Central America; British Isles and Europe; and Europe and Russia. When a company's popularity reaches certain levels in a game area, it organically raises the popularity in other areas too. This is known as 'spillover', and represents word of mouth.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="challenges">Challenges</summary>
+        <p>For a more detailed look at Challenges, please see the '?' icon that is found on the match making screen or in a fighter's profile under Personal. The two opponents may choose to continue their interactions with taunts, replies, etc. The more of these there are, and the more charismatic or dramatic the interactions, the more they will make people want to see the fight (i.e. the 'draw' of the bout increases). Challenges (or 'call outs') can happen after a fight, with the winner choosing to name a specific opponent he or she would like to compete against. A challenge means that that fighter is extremely unlikely to turn down the fight if offered.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="trash-talking">Trash Talking</summary>
+        <p>If fighters do decide to do this, their efforts can affect the 'draw' of the fight in the same way that a challenge and subsequent interactions do. The more interactions there are, and the more charismatic or dramatic the efforts, the higher the increase will be. Unlike regular challenges, the player cannot view the current 'heat' being generated. Fighters who have signed to face each other may choose to engage in public trash talking or other shenanigans in order to try and build more 'buzz' to a fight. This is down to the fighters themselves and is heavily influenced by their persona. The player cannot influence the chance of fighters doing this.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="morale">Morale</summary>
+        <p>From negative to positive, the levels of morale are: Extremely Unhappy, Very Unhappy, Unhappy, Annoyed, Normal, Pleased, Very Pleased, Happy and Very Happy. A fighter's current morale can be seen from any roster screen and is specific to that particular company. It is calculated by looking at all the currently active morale incidents affecting him or her (which can be seen by clicking on the Morale text).</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="hype">Hype</summary>
+        <p>NB: Hype is automatically removed when a fighter leaves a company. There is no limit to how many fighters can be hyped at any one time, but in general it should be reserved for fighters who the user feels are going to justify it. Whether a fighter lives up to the hype or not depends on the context. For example, if the fighter has massive amounts of hype then winning alone may not be enough to live up to the hype, he or she must win in style or with a dominant performance. The more hype there is, the harder it is to meet expectations but the more potential gains there are. The advantage of using this is that if a fighter lives up to the hype then they'll gain popularity faster than normal as fans 'buy into' them. The disadvantage is that any failures on their part will be magnified due to the scrutiny they're under and so any popularity losses will be increased. Hyping a fighter means that the company will make a special effort to present them as a big deal; the announcers will push their accomplishments, video packages will highlight their skills, they'll be featured prominently on advertising and merchandise, etc. The user can hype fighters via the Hype screen (also available via the roster).</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="financial-inducements">Financial Inducements</summary>
+        <p>You can see the current inducements (if any) for each fight via the icons on the match making screen. With inducements relating to training time, it is important to note that these get renegotiated if the fight is later moved to a different show. The previous price is discarded. This can result in a higher price being required, or, the inducement being totally removed. When match making, fighters may ask for financial inducements in order to take a specific bout. There are four different possible categories; inducements to fight a specific opponent, inducements related to training time, inducements relating to difficult opponents, and inducements for weight classes. In all cases, the agreed upon price is paid only when the fight actually happens.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="replacement-offers">Replacement Offers</summary>
+        <p>Fighters will generally only offer themselves as a replacement if they have something to gain from the bout (such as a title, a chance to move up the rankings, etc). These offers or requests to be a replacement are done privately and are not considered the same thing as a challenge; they do not affect the 'draw' of the fight, nor do they impact the relationship between the fighters. If a fighter is forced to withdraw from a bout due to injury then other fighters may contact the player to offer themselves as a replacement. If this happens, the fighter will be extremely unlikely to turn down the fight is it is offered within the following seven days. After that seven day period is up, the offer is considered to have expired. These offers are done via e-mail and are not recorded or shown anywhere else in-game.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="regions-and-regulations">Regions And Regulations</summary>
+        <p>It should be noted that in America each region is autonomous, but in every other game area all the regions will tend to act together as if controlled by a central governing body. Once the decision has been made, a hidden counter is started that counts down to the change being made; the more conservative a region, the longer this will take. Once this countdown expires, the region will change. Unregulated regions always become Regulated, whereas Illegal regions can jump to either depending on how conservative they are. There are two elements at play in the evolution of each region. The first is a hidden counter that gradually increases on a month by month basis; when it is 'full' then the region's authorities will start the process of changing their stance. All regions in which MMA is either Illegal or Unregulated will trend toward becoming Regulated over time; if the game world is run for long enough then every region will eventually become Regulated. Regulated regions cannot 'devolve'.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="regional-settings">Regional Settings</summary>
+        <p>All regions have settings for their size, political bias, lucrative rating, etc. These can be seen via the game world screen, when choosing a location to hold a show, and in the editor. It should be noted that these do not change over the course of the game.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="one-night-tournaments-and-contracts">One Night Tournaments And Contracts</summary>
+        <p>Please note that these conditions only apply to one night tournaments. Tournaments that happen over the course of multiple nights do not have special conditions and contracts are handled as normal. The reason for this special circumstance is to allow both the player and AI to make tournaments more easily, as otherwise it can be difficult to fill all the brackets with people with more than three fights remaining. One night tournaments \ annual grand prixs are considered to be a special circumstance and work slighly differently with respect to contracts. No matter whether the fighter competes in one, two, or three fights during the tournament it will only count as having 'used up' one of his contracted fights. However, he would still be paid for each fight and any Performance Scale in his contract gets activated each time.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ai-booking">AI Booking</summary>
+        <p>Please note that the AI will always book its annual grand prix in the month before it is due to happen (e.g. it books a July grand prix in June). The AI cannot 'back track' to make up bookings. For example, if you set the AI to have a January grand prix and the game also begins in January, they will not be able to run the grand prix that year as they didn't have time to book it. AI-controlled companies will only ever use one night tournaments if they have been pre-set to via the Grand Prix section of the editor.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="tournament-injuries">Tournament Injuries</summary>
+        <p>In the extremely rare case of both fighters having sustained serious injuries in earlier rounds, the fighter who was hurt first will forfeit. The other fighter will advance (although they will of course be forced to forfeit the next round). If a fighter is injured during a one night tournament then they will either continue to fight but with a handicap to their skills (for minor injuries) or forfeit the bout (for bigger injuries).</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="tournament-recovery">Tournament Recovery</summary>
+        <p>The amount of time between rounds is not taken into consideration, so fighters do not get advantages to having fought earlier on than their opponent. When a fighter advances in a one night tournament the physical effects from previous rounds are taken into account. This means their starting skills and physical condition are handicapped accordingly.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="recording-tournaments-in-editor">Recording Tournaments In Editor</summary>
+        <p>You do not have to worry about this for tournaments that happen 'live' in the game, as they are automatically done in this way. Please note that if you are adding one night tournament results to the game via the editor you should input them in chronological order: i.e. physically add them in the order they would have happened in reality, finishing with the final. This is because fights from the same event are shown in database order, and so this makes sure they will be not be in 'reverse' order when shown.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="drug-usage">Drug Usage</summary>
+        <p>There is no way to directly see whether a fighter is taking drugs other than via test failures. A fighter does not necessarily take drugs throughout his career; he may start midway through and may also stop at any time. Whether he starts will be dependent on how his career is going, his age, and his attributes. Whether he goes clean is dependent on the same information, but also on how his employer is handling drug fails and whether he has been caught or not. A fighter's potential drug usage (drug usage in this context being drugs, PEDs, or TRT) is calculated by looking at his Drugs attributes and the current era settings (if no era is defined, the level defaults to 10</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="hiding-drug-use">Hiding Drug Use</summary>
+        <p>With regards to their destiny value, this is simply a case that some fighters are destined to be better at hiding their drug usage than others. This does not change over the course of their career. With regards to age, the older a fighter gets the harder it becomes for him to mask his drug use. For this reason, you are more likely to see fighters fail tests later in their career (particularly as they are more likely to have begun using TRT in order to stay competitive). All fighters have the ability to hide (or 'mask') their use of drugs. The probability of them successfully doing so is based on their age, hidden destiny value, and attributes.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="failing-drugs-tests">Failing Drugs Tests</summary>
+        <p>If a fighter fails a drugs test you will be informed by e-mail (assuming your mail settings allow it) and it may also appear on the in-game website. The type of failure will also be shown in the fight recap information. The test is done in two stages. Firstly, it is decided whether the fighter successfully masked or hid his usage (see Hiding Drug Use, above). Only if he was unsuccessful at doing so is the second stage run. In this stage, the chance of being caught is dependent on the settings of the agency, region, or company that is doing the testing. The chance is a literal percentage, so a 50 If a fighter is drug tested, it is automatically for all three possible types of cheating; (recreational) drugs, PEDs, and TRT. Each is tested separately.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="drug-test-firings">Drug Test Firings</summary>
+        <p>Fighters are aware of how strictly each company handles drug failures and take this into account. For example, a company that fires a high percentage of fighters who fail tests will gain a reputation for being anti-drugs and fighters in that organisation will be far more likely to get clean rather than risk failing a drug test and getting fired. Similarly, a company that takes little or no action against fighters who fail tests will see their fighters far less likely to fight clean in the future. If a fighter fails a drugs test then the company that ran the event can cut his contract for free up to a month after the failure. If the fighter was also officially suspended then any company that employs him can cut him for free for the duration of the suspension.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="overturned-results">Overturned Results</summary>
+        <p>When a fight's original result gets changed due to a drug test failure, the fighters' win-loss records get adjusted to take into account the change and the person who failed will lose any positive momentum that they hold. However, it is important to note that the fighters still 'remember' the original result and it can psychologically affect their decisions. For example, a fighter who won originally but had the decision reversed may still consider himself the real winner and treat it as a victory in some circumstances (such as when considering a rematch). Whether the original or changed result is being considered changes depending on context, but the official result will always be the one displayed to the player.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="suspended-fighters">Suspended Fighters</summary>
+        <p>AI controlled companies running in unregulated regions will not use fighters that they themselves have suspended, but can and will use fighters who have been suspended elsewhere. However, they will generally only do so if the fighter has a large degree of 'drawing power', as that makes it worth taking the Credibility penalty. Fighters who have been given a drug suspension cannot fight in regulated regions until the suspension expires. They can fight in unregulated regions, as there is no organisation to enforce the suspension, but the company will get a Credibility penalty for doing so.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="what-are-scandals-">What Are Scandals?</summary>
+        <p>The scandal will eventually be forgotten about, at which point its effects disappear entirely. A mail is sent to all employers of that fighter telling them when the scandal expires, and it can also be seen via the icons at the side of a fighter's profile. Scandals are random events where a fighter gets embroiled in a serious disgrace. Any company that employs that fighter at that moment will have their stability rating damaged, and any company that then hires (not including extensions) that fighter will get hit with a penalty too. Any company who has a scandal-tainted fighter fight for them will receive damage to their credibility. Any company who has a scandalised fighter on their roster will also find their sponsorship money reduced (the bigger the name who is involved, the greater the drop), even if the fighter isn't being used.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="what-are-game-changers-">What Are Game Changers?</summary>
+        <p>Game changers are mildly-rare random events where a company is involved in an incident that either has major positive or negative effects. These are designed to help shake-up the game world to keep things interesting.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="profile-navigation">Profile Navigation</summary>
+        <p>Please note that if you use the Jump To menu to access an item that does not exist in the list you came from, the navigation arrows will be disabled. You can re-enable them by visiting a profile of an item that is on the list. The second is the navigation arrows on the sides of the profile; these are enabled if you accessed the profile via a list (such as a roster screen), and allow you to scroll through that list at speed. The first is the Jump To menu; this allows you to jump immediately to any other profile. When viewing a fighter, company, or team profile there are two navigation aids provided that allow you to move quickly between them.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="child-company-ownership">Child Company Ownership</summary>
+        <p>Child companies will happily run themselves without any human interaction, including hiring new fighters, dealing with broadcasters, etc. Where possible, they will try not to overwrite anything a human does (such as moving a fighter back to a weight class that the user moved him or her from). Please note that child companies who have a human-controlled parent will never add new weight classes or change their drug test settings. They can, however, add new title belts if a division does not have one. To change things about a child company you own, such as weight classes or titles, you can use the Options button in the Child Organisation screen. To attempt to take over a new child company, you must access that company's profile and use the Business section.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="child-company-finance">Child Company Finance</summary>
+        <p>A child company is controlled and owned by its parent. As such, at the end of each month its current finances are absorbed into the parent's. This means that any profit they may have made is taken by the parent, but also that any loss is paid for by the parent too. For this reason, child companies can never go bankrupt (as long as the parent is still active).</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="child-company-rosters">Child Company Rosters</summary>
+        <p>Please note that this means that child companies cannot cut loanee fighters, regardless of how badly they perform. A child company's roster can be made up of loanees (fighters who belong to the parent company but have been loaned out) and 'home talent' (fighters who are connected directly to the child company). The parent company technically owns all the fighters, but the difference is that the AI will only actively deal with the contract of the 'home talent'. For loanees, an alert / reminder is sent to the parent company and they are entrusted with starting any negotiations.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="child-company-hires">Child Company Hires</summary>
+        <p>If a parent company hires a fighter who is already on the roster of a child company, regardless of whether he is on loan there or not, when the contract is signed they will remain on the child company's roster. This is because if they were automatically called up they would be forced to vacate any titles and cancel any already-booked fights. The parent company owner (i.e. the player) can call them up at any point from the Child Organisation screen.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="what-are-local-shows-">What Are Local Shows?</summary>
+        <p>Showcases are a special type of large local show. They happen once a year at most and feature only the very best unsigned talent taken from around the world. Even major stars can work these events. It is a good way for fighters to increase their profile and fight top-level competition that they otherwise would not be able to meet. Small and Large local shows will regularly happen in every area that has enough unemployed fighters to warrant it. They happen automatically and are unaffected by anything the user does. Large local shows primarily feature unemployed fighters taking each other on, with occasional local fighters thrown in to make up the number if necessary. This provides a sterner test and can allow fighters to generate a buzz or resurrect their careers. Major stars will not work these events even if they are unemployed for a long time. Small local shows are for inexperienced fighters and allow them to build their skills and win-loss record against poor quality local fighters. Once a fighter has proven themselves, they will no longer work these events. Local shows are events that are not associated with a particular company. They simulate the local-level MMA scene and allow unemployed fighters to develop their skills, stay active, and to try and attract job offers. They are divided by game area, except that Central America and Russia are combined with South America and Europe respectively due to their lack of talent depth. These shows come in three sizes, Small, Large, and Showcase.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="local-fighters">Local Fighters</summary>
+        <p>Given their inherent handicap, local fighters will very rarely win. However, that does not mean it is impossible. Local fighters who do manage to beat a 'name' fighter do not get added to the database. A local fighter is created as a carbon copy of their opponent, but with all attributes removed and all skill levels reduced by 50 Local fighters are temporary fighters who appear on local shows to provide fodder for 'proper' fighters in the database. They may either appear as Local Fighter or with a proper name, depending on the settings given in the Options menu.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="what-is-reputation-">What Is Reputation?</summary>
+        <p>A fighter who fails to make weight is ineligible for any reputation gain, but will take any reputation losses. If the fighter is competing in a class in which they have no current reputation, they do not necessarily start from nothing. If they have reputation in the weight class immediately above (i.e heavier) then this is used to create a base level. If no reputation is found, the weight class immediately below is checked. Only if no reputation is found in either does the fighter start from scratch. A fighter's reputation gets adjusted when he fights. If the weight class they fight in does not match one of the eleven official weight classes, the maximum weight limit is used to decide which class is affected (i.e. if they fight in a division that is 150-160lbs, it would affect their Welterweight reputation). Openweight fights do not affect any reputation class. Every fighter has eleven reputation values, one for each of the official weight classes (Atomweight to Super Heavyweight). These are not directly visible in the game. These show how highly he or she is rated in that weight class and are the main data used in creating rankings.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="changing-reputation">Changing Reputation</summary>
+        <p>The quality and excitement of a fight has no impact on rankings, which are purely based on competitive achievements. In certain situations, gains are severely limited or unavailable. For example, there are no points for beating local fighters once a competitor has reached a certain level, and there is a cap on how high wins on local shows can take a fighter. The amount can be further adjusted by the fighter's current momentum and they can receive a sizeable boost if they are on a lengthy undefeated streak. The amount that a fighter's reputation changes depends on three primary factors: the result of the fight, the comparative reputation of the opponent, and the method and decisiveness of the finish. The biggest possible gain would therefore be to score a decisive win (for example, a quick knock out) over someone with a much higher reputation. Only just managing to beat someone who you were expected to crush would give few, if any, points. Forfeited fights do not affect reputation.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="expiring-reputations">Expiring Reputations</summary>
+        <p>Permanent expiry happens if the fighter spends eight or more fights competing outside of a weight class. In this case, his rating in that class returns to being 'unknown'. If he then comes back to that weight class then the rating is recalculated afresh. This prevents a fighter from being judged on a rating that is extremely out of date. If a fighter competes outside of a weight class three times in a row then his rating in that weight class becomes temporarily expired: this means that it no longer counts towards any ranking. If the fighter then comes back to that weight class then it becomes active again. There are two ways that a fighter's reputation in a weight class can expire: temporary and permanent.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="reputation-change-examples">Reputation Change Examples</summary>
+        <p>It is to be remembered that these are the base values only; they can be modified slightly with regard to the fighter's current situation. For example, being on a winning streak can give up to a 10 For a 'competitive bout' (that is, one in which the fighters were very close in reputation) the values are 75, 60, 35, -75, -60, -35. For a bout where the winner had a much higher reputation the values are 35, 15, 8, -15, -10, -4. If the winner was only a slight favourite the values would be 60, 35, 20, -60, -35, -20. A bout where the winner was a relative (but not huge) underdog would have 80, 65, 40, -85, -75, -40. A huge underdog winning would see values of 120, 100, 75, -125, -110, -90. A win over a 'local' fighter would give 30, 12, 5. If one or both fighters have no reputation value to base these calculations on then special context-specific code is used, but the winner can expect to be getting 30-70 points and the loser will be getting somewhere between 0-15 (unless the other person already has a high reputation in which case they are eligible for massive boosts). In each case you will see six values; these correspond to what the winner can expect to gain from a clean finish, a decisive decision, and a disputed or controversial result respectively, and then the same values for the loser of the bout. The following are examples of the values that are used within the game engine for changing fighters' reputations. For most players this information will not be particularly relevant as it is not directly visible within the game, however, it is provided here primarily so that database makers can get a feel for what numbers to use when filling in data. As shown in the editor, the overall range of reputation is from 0 to 1000.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="world-rankings">World Rankings</summary>
+        <p>Please note that the Pound For Pound rankings use a fighter's best score across all weight classes but does not take into account whether they hold a title so as to avoid the rankings being dominated by title holders. For this reason, it's possible for a title holder to be above someone in a weight class ranking but below them in the Pound For Pound list. World rankings are updated automatically 2 days after every National or International event (the counter is reset if another major show happens before it expires) or after 28 days of inactivity. Some bonus points are given if the fighter holds a title in a National or International company. For very highly ranked fighters, their momentum can slightly increase or decrease the total (this is used to stop 'bottle necks'). World rankings for each of the eleven weight classes are created by looking at each fighter's reputation in that class. A fighter must have fought at least 5 times (across all weights) to qualify and at least one of his last three fights (excluding tournaments and openweight fights) must have been as part of the weight class in question.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="company-rankings">Company Rankings</summary>
+        <p>Company rankings are updated automatically 2 days after every one of the company's events (the counter is reset if another show happens before it expires) or after 10 days of inactivity. As with world rankings, bonus points are available if the fighter holds a title, but only if it's a title within the company. Momentum also still has an effect for very highly ranked fighters. Company rankings work in a very similar manner to the world rankings, although there is no 5 fight minimum requirement. If the company's weight class spans more than one of the eleven official weight classes, the best score is used. As it is based on reputation, which is global, a fighter does not have to have competed in a company to become ranked and fights outside the company still impact his or her ranking.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="ranking-reductions">Ranking Reductions</summary>
+        <p>A fighter who doesn't fight for more than two years is automatically removed from all rankings. His or her points are unaffected though and will come back into play if and when they next fight. A fighter who fails a drugs test will automatically have his reputation in every weight class tarnished. The level of penalty depends on the severity of the punishment (i.e. whether the fight is overturned, made a No Decision, or is unaffected).</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="relative-rankings">Relative Rankings</summary>
+        <p>In conclusion, big rises and falls in the division can be expected in newer divisions, or in divisions where the top handful of fighters have very similar 'scores', because of the relative nature of the rankings. To further illustrate this, you can imagine a fictional division where nobody has ever fought before. If everyone fights once, the top 25 is likely to be made up entirely of people with a 1-0 record, with #1 probably being the person who was slightly more impressive. Because the rankings are relative, it would not be unusual to see the #1 person fall entirely off the rankings if he lost his second fight, as clearly if there were 25 people who went 2-0 then they would have more points than him. For example, in a very new division such as the Female Flyweight division in the game's default data where most of the fighters have less than ten fights, the number of ranking points that the #1 fighter has is not going to be massively higher than the person at #25 because they simply haven't fought enough to 'score' very highly. The rankings will therefore be very volatile, with people rising or falling many places after a single fight, because the amount of points they can gain or lose per fight are going to be proportionally quite high compared to the overall totals. By contrast, a well established division would be less volatile because the spread of points are likely to be far greater, meaning wins and losses will have proportionally less impact. If is extremely important to remember that all rankings within the game only make sense in relation to the other people in that class, and as such the amount of places that a fighter can rise or fall in one go is only limited by how everybody else is doing.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="can-an-avatar-die-">Can An Avatar Die?</summary>
+        <p>The avatar that the player uses cannot die, meaning that he or she can continue playing the game indefinitely. If the player leaves the game then the avatar reverts to being a normal character and can pass away.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="what-are-destiny-values-">What Are Destiny Values?</summary>
+        <p>The player does not need to even be aware of the existence of destiny values given that they are entirely hidden in the background, but they are described here purely in the interests of clarity. Destiny values are heavily used throughout the game, deciding everything from when a fighter is likely to retire to how successful they are at masking drug use, from when a company runs shows to when a team starts looking for new members. The purpose of the destiny value is to add an element of randomness so that every game is different, even when played with otherwise identical data. Characters, companies, and teams all have a hidden 'destiny' value. This is simply a random number that is assigned to them at the start of each new game (or when they are created, if they appear during gameplay). This number is never visible to the player and does not change during gameplay.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="olympic-games">Olympic Games</summary>
+        <p>A fighter who is away (either training or actually at the Games) will not be available for fighting, although they will complete any fights that were booked prior to them being selected. To be eligible for Olympic selection, a fighter must have a World Calibre background in the sport. They must also be of a valid age, be healthy, have no drug history, and not currently be under an exclusive contract with an MMA company. Olympic selection happens two years before the Games. Athletes who choose to take part will go into full-time training and will put their MMA careers on hold. Winning a medal will give the character a popularity boost. An athlete's performance at the Games is based on their skills. The Olympic Games, unless turned off via the editor, happen every four years. Up to nine different MMA-related sports can be included, and any that are not pre-set to happen may get added during gameplay.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="world-championships">World Championships</summary>
+        <p>As with the Olympics, a fighter's success is based upon their relevant skills. The schedule for each world championship is pre-set into the game. Each is annual, apart from Karate and Taekwondo which are every two years. Judo is annual but does not take place in an Olympic year if the sport is represented in the Games. Only fighters with a World Calibre background in the sport will ever choose to compete in a world championship (for Submission Wrestling the fighter can have a background in any related discipline) and, much like the Olympics, it is limited to healthy fighters who are not under exclusive contracts. There are up to nine world championships in other MMA-related sports that can happen; these are pre-set in the editor. They work in a very similar manner to the Olympic Games, except that the fighter will be unavailable for a much shorter amount of time and the potential popularity boosts for success is much smaller.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="what-is-the-fighter-career-cycle-">What Is The Fighter Career Cycle?</summary>
+        <p>The career cycle is controlled by the Peak Age, Decline Age, and Retirement Age values that can be seen in the editor, under a character's Destiny tab. These are not visible to the player during gameplay. If the values are not pre-set then the character is assigned a random value at the start of each game (or when they are created during gameplay). A fighter's career cycle covers how their skills develop from when they first turn professional through to their retirement.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="rising">Rising</summary>
+        <p>It should be noted that although all 'rising' fighters improve at a faster rate, it is not the same rate for everyone; a lazy, undedicated fighter doesn't learn at the same rate as a highly motivated student, for example. During this part of the cycle, the fighter is able to improve his or her skills at a massively accelerated rate, allowing for very quick growth. The more years the fighter gets in this state, the better, as it will lead to them entering their prime with higher skill levels. A fighter is in the 'rising' part of their career cycle when their age is less or equal to their Peak Age.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="peaking-and-prime">Peaking And Prime</summary>
+        <p>As mentioned in the previous topic, the rate at which fighters learn is not a flat rate; some fighters learn much quicker than others, depending on things like their dedication and how good their training is. During this part of the cycle, the fighter improves his or her skills at their normal rate. This is, essentially, the default state for fighters and does not give any special bonuses or penalties. A fighter peaks and enters their prime after the 'rising' state has finished and before the 'declining' phase begins.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="declining">Declining</summary>
+        <p>As a rule of thumb, technique declines at a slower pace than explosiveness, mobility, and general physical ability. The rate at which a fighter's skill naturally decline depends on the skill in question and their physical health. For example, a fighter's natural strength and punching power decline very slowly indeed, whereas footwork and conditioning go down very rapidly. On top of that, if the fighter has sustained many injuries to a specific body part then that can also have an effect. For example, a fighter who has battered legs is going to lose his mobility at an extremely quickened pace. During this part of the cycle, two things happen. Firstly, their ability to improve their skills is hugely slowed, meaning that a declining fighter is unlikely to get much better than he currently is (although high-level and very focused training can overcome this, at least temporarily). Secondly, their skills start to naturally decline. A fighter is in the 'declining' part of their career when their age is equal to or greater than their Decline Age.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="award-criteria">Award Criteria</summary>
+        <p>Please note that all the awards are legitimate; there is no randomness involved, the various winners are simply those who achieved the best rating. The team awards have no criteria other than the team must have had at least one member win one fight during the course of the calendear year. To qualify for one of the company awards, a company must have held at least six shows during the calender year. The awards are based on the average of their best six critical ratings. To qualify for one of the fighter awards, a competitor must have fought at least twice during that calendar year. There is a slight bias towards people who have fought more. The awards are based on the impressiveness of victories a fighter has achieved; for example, the world #1 beating the world #2 would get quite a lot of points, but the world #10 beating the world #2 would gain more as it's a more impressive feat for him or her to have made. The End Of Year Awards are handed out on the final day of each year. They simulate the in-game website giving out accolades. They are not 'official', and so give no popularity gains, but are meant to be considered prestigious and so are tracked and referenced both on the website and in the fighters' profiles and icons.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="the-two-editors">The Two Editors</summary>
+        <p>The secondary editor, usually known as the 'in-game' editor, is available from the Options menu while playing a save game. This is less powerful, but allows you to alter the data that is currently in use. This is generally recommended only for fixing mistakes and 'cheating', not for making wide-ranging changes. Whatever changes are made here only impact the save game in question. The main editor (also sometimes called the 'primary' editor) is available via the main title screen. This is by far the more powerful of the two and allows you to create, edit, and delete to your heart's content. However, whatever you do in here only affects save games started from that point onwards. Existing save games are not impacted. WMMA5 comes with two editors and it is important to know the difference.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="what-are-mods-">What Are Mods?</summary>
+        <p>You can create your own mods by using the main editor to create a brand new database and passing it on to people. You will find your database in WMMA5 -> Databases -> DatabaseName. It is a single file, WMMA5.mdb, that is all you need to distribute to pass on the data. 'Mods' are fan-made databases that you can install in order to play in alternate game worlds. The majority of these you will find in the Mods subforum on the Grey Dog Software boards. Often they will come with custom graphics.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="installing-a-mod">Installing A Mod</summary>
+        <p>Installing mods is extremely easy, all you need is to have downloaded the appropriate mod and to have access to a zipping program (like WinZip or WinRar, both of which are freely available and usually come pre-installed on machines. If you access the main editor there is a button in the information bar at the bottom called Install Mod; simply click this and follow the instructions given.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="playing-a-multiplayer-game">Playing A Multiplayer Game</summary>
+        <p>If you wish to play multiplayer remotely then you will need to send the save game to the next player each turn. You can find the save game in WMMA5 -> Databases -> DatabaseName -> SaveGames -> SaveGameName. You should zip that folder up and send it to the next player, who adds (or replaces) it to the same place on his machine. WMMA5's multiplayer mode is designed to be played 'hot seat', that is, with all the players in the same room.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="versions-and-patches">Versions And Patches</summary>
+        <p>You can find what version you are currently using by looking at the taskbar on the opening screen. It will be in the format '1.00'. The game will alert you when a new patch is available via a pop-up message when you first load it (assuming the game can access the Internet at the time). You are strongly advised to keep up to date as much as you can because patches can rarely fix things that have already gone wrong, only prevent them from happening in the first place; therefore not patching until after you get hit with an error is generally not going to help you. Patches fix errors and add new content. They can be found in the WMMA5 Technical Support forum, where you will also find simple installation instructions. WMMA5 is regularly updated via the use of patches. A patch is a new EXE file that simply replaces your existing copy.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="accessing-save-games">Accessing Save Games</summary>
+        <p>WMMA5 databases and save games use Microsoft Access Databases and are MDB files. They are password protected because users should not manipulate them directly. This is because the databases themselves have no error-checking (it is entirely in-game) and so if the user adds any incorrect data then the database or save game can be rendered unplayable. Please note that no technical support is offered for MDB files that have been messed up this way.</p>
+      </details>
+    </div>
+  
+    <div class="section">
+      <details open>
+        <summary id="licenses">Licenses</summary>
+        <p>Please note that you should never give your license code to anyone else, as doing so could allow it to be stolen. For information on moving licenses, or how to deal with any license issues that may arise, please see the WMMA5 Technical Support forum. Purchasing WMMA5 gives the buyer one license, which will usually take the form of a long string of characters and numbers begining with 'VT-'. You can find this in your purchase receipt e-mail and it should be kept safe. This allows you to play the game on one computer at a time. You may move the license back and forth between multiple machines as often as you like as long as it is only active in one place at any one time.</p>
+      </details>
+    </div>
+  
+
+  <button onclick="scrollToTop()" id="top-button" title="Return to Top">↑ Top</button>
+
+<script>
+  const topButton = document.getElementById("top-button");
+  const themeToggle = document.getElementById("theme-toggle");
+  const searchBox = document.getElementById("search-box");
+
+  window.onscroll = function() {
+    topButton.style.display = (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) ? "block" : "none";
+  };
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function setTheme(theme) {
+    document.body.classList.toggle("dark-mode", theme === "dark");
+    localStorage.setItem("theme", theme);
+  }
+
+  themeToggle.addEventListener("click", function () {
+    const newTheme = document.body.classList.contains("dark-mode") ? "light" : "dark";
+    setTheme(newTheme);
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setTheme(savedTheme);
+  });
+
+  searchBox.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+
+    // Filter section blocks
+    document.querySelectorAll(".section").forEach(section => {
+      const text = section.innerText.toLowerCase();
+      section.style.display = text.includes(query) ? "block" : "none";
+    });
+
+    // Filter Table of Contents links
+    document.querySelectorAll(".toc li").forEach(li => {
+      const text = li.innerText.toLowerCase();
+      li.style.display = text.includes(query) ? "list-item" : "none";
+    });
+  });
+
+  // Optional: scroll to first match on Enter
+  searchBox.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      const query = this.value.toLowerCase();
+      const first = Array.from(document.querySelectorAll(".section")).find(section =>
+        section.innerText.toLowerCase().includes(query)
+      );
+      if (first) {
+        first.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+</script>
+</body>
+</html>
